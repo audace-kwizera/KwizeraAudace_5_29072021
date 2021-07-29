@@ -4,25 +4,28 @@
  */
 main()
 
-function main() {
-    //Recupération des produits
-    const products = getProducts()
+//Transfprmation de la fonction main en asynchrone pour pouvoir utiliser await
+async function main() {
+    //Attendre que les produits soit trouvés par fetch pour les récuperer des produits
+    const products = await getProducts()
+    //console.log(products)
     //Fonctions qui affiche tous les produits
     displayProducts(products)
 }
 
 function getProducts() {
     //Chercher et récupérer les données via fetch
-    fetch("http://localhost:3000/api/teddies")
+    return fetch("http://localhost:3000/api/teddies")
         //Transformer données en json
         .then(function (httpBodyResponse) {
             return httpBodyResponse.json()
         })
         //Récuperation de tous les produits (json)
-        .then(function (produits) {
+        .then(function (products) {
+            return products
             /**
              * Test 1 => récupération des données ok le fetch récupère les donnés
-             * console.log(produits)
+             * console.log(products)
              */
         })
         //Affichage d'un message au cas ou il y a une erreur 
@@ -34,6 +37,7 @@ function getProducts() {
              */
         })
 }
+
 
 function displayProducts() {
 
