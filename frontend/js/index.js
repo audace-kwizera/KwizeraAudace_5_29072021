@@ -21,8 +21,16 @@ function getProducts() {
         //Récuperation de tous les produits (json)
         .then(function (produits) {
             /**
-             * Test de récupération le fetch récupère les donnés
+             * Test 1 => récupération des données ok le fetch récupère les donnés
              * console.log(produits)
+             */
+        })
+        //Affichage d'un message au cas ou il y a une erreur 
+        .catch(function(error) {
+            alert(error)
+            /**
+             * Test 2 => Affichage d'une erreur si aucun produit trouvé
+             * console.log(error)
              */
         })
 }
