@@ -1,0 +1,19 @@
+@charset "UTF-8";
+/* Polices */
+/*  Couleurs de la Charte    */
+/*  Autres couleurs */
+/*  Ombres  */
+/*  Animations  */
+/*  Responsive Breakpoint  */
+/** Style général du site */
+body {
+  display: block;
+  font-family: "Gill Sans", sans-serif, "Roboto", sans-serif, "Helvetica Neue", sans-serif;
+  margin: auto;
+  max-width: 2048px;
+}
+
+a {
+  text-decoration: none;
+}
+/*# sourceMappingURL=style.css.map */
