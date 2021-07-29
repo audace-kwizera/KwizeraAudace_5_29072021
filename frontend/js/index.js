@@ -10,9 +10,10 @@ async function main() {
     const products = await getProducts()
     //console.log(products)
     //Selection de chaque produits de la liste de produits
-    for (product of products)
+    for (product of products) {
     //Fonctions qui affiche tous les produits
     displayProduct(product)
+    }
 }
 
 function getProducts() {
@@ -51,5 +52,5 @@ function displayProduct(product) {
     cloneElt.getElementById("product__title").textContent = product.name
     cloneElt.getElementById("product__description").textContent = product.description
     cloneElt.getElementById("product__price").textContent = product.price
-    //console.log(cloneElt)
+    
 }
