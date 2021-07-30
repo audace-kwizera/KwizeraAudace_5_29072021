@@ -43,5 +43,8 @@ function getProduct(productId) {
 }
 
 function hydrateProduct(product) {
-
+    document.getElementById("templateProduct__image").src = product.imageUrl
+    document.getElementById("templateProduct__title").textContent = product.name
+    document.getElementById("templateProduct__description").textContent = product.description
+    document.getElementById("templateProduct__price").textContent = product.price
 }
