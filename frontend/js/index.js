@@ -2,10 +2,11 @@
  * Fonction main qui va contenir le code de base pour éviter
  * les variables au niveau du script de base
  */
-main()
 
-//Transfprmation de la fonction main en asynchrone pour pouvoir utiliser await
-async function main() {
+/**
+ * Création d'une fontion no name appelé grâce à () pour récupérer les données de l'api
+ */
+(async function() {
     //Attendre que les produits soit trouvés par fetch pour les récuperer des produits
     const products = await getProducts()
     //console.log(products)
@@ -14,7 +15,7 @@ async function main() {
     //Fonctions qui affiche tous les produits
     displayProduct(product)
     }
-}
+})()
 
 function getProducts() {
     //Chercher et récupérer les données via fetch
@@ -47,10 +48,11 @@ function displayProduct(product) {
     const templateElt = document.getElementById("templateProduct")
     const cloneElt = document.importNode(templateElt.content, true)
 
-    //Remplir les infos du template par les infos de l'api
-    cloneElt.getElementById("product__image").src = product.imageUrl
-    cloneElt.getElementById("product__title").textContent = product.name
-    cloneElt.getElementById("product__description").textContent = product.description
-    cloneElt.getElementById("product__price").textContent = product.price
-    
+    //Remplir les infos du template par les infos de l'api en toute sécurité
+    cloneElt.getElementById("templateProduct__image").src = product.imageUrl
+    cloneElt.getElementById("templateProduct__title").textContent = product.name
+    cloneElt.getElementById("templateProduct__description").textContent = product.description
+    cloneElt.getElementById("templateProduct__price").textContent = product.price
+
+    document.querySelector("main").appendChild(cloneElt)
 }

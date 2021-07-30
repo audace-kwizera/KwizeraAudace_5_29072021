@@ -7,6 +7,106 @@
 /*  Responsive Breakpoint  */
 /** Style général du site */
 body {
+  font-family: "Gill Sans", sans-serif, "Roboto", sans-serif, "Helvetica Neue", sans-serif;
+}
+
+.btn {
+  background-color: #f0f0c5;
+  color: black;
+  margin: 1.5rem;
+  font-family: monospace;
+}
+
+.btn:hover {
+  background-color: #99E2D0;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background-color: #99E2D0;
+}
+
+header a {
+  padding: 5.3%;
+  width: 40%;
+}
+
+header nav {
+  width: 60%;
+}
+
+header ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%;
+  padding: 2.4%;
+}
+
+/*  Presentation    */
+.presentation__title {
+  width: 70%;
+  margin: 15%;
+  text-align: center;
+}
+
+.slogan {
+  text-align: center;
+  width: 60%;
+  margin: 5% 20%;
+}
+
+.filtres {
+  width: 60%;
+  margin: 5% 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.filtres__container {
+  background-color: #99E2D0;
+}
+
+footer ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 50%;
+}
+
+.templateProduct {
+  overflow: hidden;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  color: black;
+  background-color: #99E2D0;
+  text-align: center;
+  width: 25%;
+  margin: 2.5%;
+}
+
+.templateProduct__image {
+  overflow: hidden;
+  padding-top: 14%;
+  padding-bottom: 5%;
+}
+
+body {
   display: block;
   font-family: "Gill Sans", sans-serif, "Roboto", sans-serif, "Helvetica Neue", sans-serif;
   margin: auto;

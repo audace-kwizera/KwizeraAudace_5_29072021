@@ -22,6 +22,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <script src="js/index.js"></script>
 </head>
 
 <body>
@@ -51,7 +52,7 @@
                 </p>
             </div>
         </section>
-
+<!--
         <section class="filtres">
             <div class="filtres__container">
                 <button class="btn filtres__button__active" onclick="filterSelection('all')"></button>
@@ -66,15 +67,16 @@
                 <button class="btn filtres__button__active" onclick="filterSelection('Beige')"></button>
             </div>
         </section>
+    -->
+        
+            <template id="templateProduct">
+                <img src="imageUrl" alt="photo de" class="templateProduct__image" id="templateProduct__image" />
+                <h2 class="templateProduct__title" id="templateProduct__title">Nom</h2>
+                <p class="templateProduct__description" id="templateProduct__description">Description</p>
+                <h3 class="templateProduct__price" id="templateProduct__price">Prix</h3>
+                <a href="produit.html" class="btn templateProduct__btn" id="templateProduct__btn">Lien</a>
+            </template>
 
-            <div id="templateProduct">
-                <img src="imageUrl" alt="photo de" class="product__image" id="product__image" />
-                <h2 class="product__title" id="product__title">Nom</h2>
-                <p class="product__description" id="product__description">Description</p>
-                <h3 class="product__price" id="product__price">Prix</h3>
-                <a href="produit.html" class="btn product__btn" id="product__btn">Lien</a>
-            </div>
-       
 
     </main>
     <footer>
@@ -86,7 +88,7 @@
     </footer>
 
     <!-- Fichier script -->
-    <script src="./js/index.js"></script>
+   
 </body>
 
 </html>

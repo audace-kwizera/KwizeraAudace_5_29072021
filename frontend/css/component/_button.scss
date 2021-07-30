@@ -1,0 +1,11 @@
+.btn {
+    background-color: $primary-color;
+    color: black;
+    margin: 1.5rem;
+    font-family: monospace;
+}
+
+.btn:hover {
+    background-color: $tertiary-color;
+}
+

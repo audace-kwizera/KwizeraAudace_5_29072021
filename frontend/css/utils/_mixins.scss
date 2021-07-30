@@ -1,0 +1,14 @@
+@mixin flex_row_space_around {
+    display: flex;
+    justify-content: space-around;
+}
+
+@mixin flex_row_center {
+    display: flex;
+    justify-content: center;
+}
+
+@mixin flex_column {
+    display: flex;
+    flex-direction: column;
+}

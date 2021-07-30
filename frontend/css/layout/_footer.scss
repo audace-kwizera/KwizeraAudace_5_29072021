@@ -1,0 +1,6 @@
+footer {
+    &  ul {
+    @include flex_column;
+    width: 50%;
+    }
+}
