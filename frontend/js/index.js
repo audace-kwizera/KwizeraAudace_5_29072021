@@ -53,6 +53,7 @@ function displayProduct(product) {
     cloneElt.getElementById("templateProduct__title").textContent = product.name
     cloneElt.getElementById("templateProduct__description").textContent = product.description
     cloneElt.getElementById("templateProduct__price").textContent = product.price
+    cloneElt.getElementById("templateProduct__btn").href += "?id=" + product._id
 
     document.querySelector("main").appendChild(cloneElt)
 }
