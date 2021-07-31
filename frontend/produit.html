@@ -40,15 +40,36 @@
 
     <main>
 
-            <a href="index.html" class="btn btn__accueil">Accueil</a>
+        <a href="index.html" class="btn btn__accueil">Accueil</a>
 
-            <div id="templateProduct">
-                <img src="imageUrl" alt="photo de" class="templateProduct__image" id="templateProduct__image" />
-                <h2 class="templateProduct__title" id="templateProduct__title">Nom</h2>
-                <p class="templateProduct__description" id="templateProduct__description">Description</p>
-                <h3 class="templateProduct__price" id="templateProduct__price">Prix</h3>
-                <a href="produit.html" class="btn templateProduct__btn" id="templateProduct__btn">Lien</a>
-            </div> 
+        <div id="templateProduct" class="templateProduct">
+            <img src="imageUrl" alt="photo de" class="templateProduct__image" id="templateProduct__image" />
+
+            <h2 class="templateProduct__title" id="templateProduct__title">Nom</h2>
+
+            <p class="templateProduct__description" id="templateProduct__description">Description</p>
+
+            <h3 class="templateProduct__price" id="templateProduct__price">Prix</h3>
+           
+            <div id="templateProduct__option" class="templateProduct__option">
+                <label for="templateProduct__option__couleur">Couleur </label>
+                <select name="couleur" id="templateProduct__option__couleur" class="templateProduct__option__couleur">
+                </select>
+            </div>
+
+            <div id="templateProduct__quantite" class="templateProduct__quantite">
+                <label for="templateProduct__quantite__nombre">Quantité </label>
+                <input type="number" id="templateProduct__quantite__nombre" name="quantite" required minlength="1"
+                    value="1">
+            </div>
+
+            <div id="templateProduct__link" class="templateProduct__link">
+            <a href="produit.html" class="btn templateProduct__link__add" id="templateProduct__link__add">Lien</a>
+
+            <a href="index.html" class="btn templateProduct__link__home">Accueil</a>
+            </div>
+
+        </div>
     </main>
     <footer>
         <ul class="footer">
@@ -60,7 +81,7 @@
 
     <!-- Fichier script -->
     <script src="js/produit.js"></script>
-    
+
 </body>
 
 </html>
