@@ -7,7 +7,7 @@
     //Appel du produit
     //Attendre que les produits soit trouvés par fetch pour les récuperer des produits
     const product = await getProduct(productId)
-    const colorsSelection = document.querySelector("colors")
+    //const colorsSelection = document.querySelector("colors")
     //console.log(product)
     //Changer le contenu de notre div existante, on rafraichi en récupérant les infos sur notre produit
     hydrateProduct(product)
@@ -66,4 +66,35 @@ function hydrateProduct(product) {
         colorsSelection.appendChild(option)
     }
 }
+
+//Recuperation des données séléctionnées par l'uutilisateur et envoi au panier
+//Selection de l'id du produit
+const addProductId = getProductId()
+console.log(addProductId)
+
+//Selection du nom du produit
+const addProductName = document.getElementById("templateProduct__title")
+//console.log(addProductName)
+
+//Selection de l'id de la couleur
+const addProductColor = document.querySelector("#templateProduct__option__couleur")
+//console.log(addProductColor)
+
+//Enregistrer choix de l'utilisateur 
+const addProductColorChoice = addProductColor.value
+//console.log(addProductColorChoice)
+
+//Enregistrer la quantité choisi de l'utilisateur 
+const addProductQuantity = document.querySelector("#templateProduct__quantite__nombre")
+//console.log(addProductQuantity)
+
+//Enregistrer le prix du produit choisi par l'utilisateur
+const addProductPrice = document.getElementById("templateProduct__price")
+//console.log(addProductPrice)
+
+//Modification lien ajout au panier
+const ajoutPanier = document.querySelector("#templateProduct__link__add")
+//console.log(ajoutPanier)
+
+
 

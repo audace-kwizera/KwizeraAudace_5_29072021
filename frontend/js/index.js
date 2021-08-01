@@ -6,14 +6,14 @@
 /**
  * Création d'une fontion no name appelé grâce à () pour récupérer les données de l'api
  */
-(async function() {
+(async function () {
     //Attendre que les produits soit trouvés par fetch pour les récuperer des produits
     const products = await getProducts()
     //console.log(products)
     //Selection de chaque produits de la liste de produits
     for (product of products) {
-    //Fonctions qui affiche tous les produits
-    displayProduct(product)
+        //Fonctions qui affiche tous les produits
+        displayProduct(product)
     }
 })()
 
@@ -21,11 +21,11 @@ function getProducts() {
     //Chercher et récupérer les données via fetch
     return fetch("http://localhost:3000/api/teddies")
         //Transformer données en json
-        .then(function(httpBodyResponse) {
+        .then(function (httpBodyResponse) {
             return httpBodyResponse.json()
         })
         //Récuperation de tous les produits (json)
-        .then(function(products) {
+        .then(function (products) {
             return products
             /**
              * Test 1 => récupération des données ok le fetch récupère les donnés
@@ -33,7 +33,7 @@ function getProducts() {
              */
         })
         //Affichage d'un message au cas ou il y a une erreur 
-        .catch(function(error) {
+        .catch(function (error) {
             alert(error)
             /**
              * Test 2 => Affichage d'une erreur si aucun produit trouvé
@@ -58,9 +58,10 @@ function displayProduct(product) {
     document.querySelector("main").appendChild(cloneElt)
 
     //Convertir les prix en euros
-    product.price = product.price / 100
+    /*product.price = product.price / 100
     templateProduct__price.innerText = new Intl.NumberFormat("fr-FR", {
         style: "currency",
         currency: "EUR",
-      }).format(product.price);
+    }).format(product.price);*/
+    
 }
