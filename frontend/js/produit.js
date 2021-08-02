@@ -132,3 +132,22 @@ addProductToCart.addEventListener("click", (event) => {
     console.log(addProductOptions)
 })
 
+
+/*===============   Local Storage   =========*/
+//Verifier si le local storage est vide, on va lire la clé produit via getItem
+let localStorageInit = localStorage.getItem("product")
+//conversion des données js dans le localstorage en json via json.parse
+console.log(localStorageInit)
+
+//Si il y a ou non une clé des produits dans le localstorage 
+if (localStorageInit){
+
+} else {
+    //Creer un array vide
+    localStorageInit = []
+    console.log(localStorageInit)
+}
+
+
+//Importer données du lot de produit
+
