@@ -147,7 +147,7 @@ if (localStorageInit){
     * pour éviter l'effacement des produits lors deraffraichissement de page
     * et creer la clé product
     */
-     localStorage.setItem("product", JSON.stringify(localStorageInit))
+    localStorage.setItem("product", JSON.stringify(localStorageInit))
 
      console.log(localStorageInit)
 
