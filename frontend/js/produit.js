@@ -97,6 +97,7 @@ const addProductQuantity = document.getElementById("templateProduct__quantite__n
 const addProductToCart = document.getElementById("templateProduct__link__add")
 //console.log(addProductToCart)
 
+/* Creation de l'evenement d'ajout au panier */
 
 //Envoyer le panier
 addProductToCart.addEventListener("click", (event) => {
@@ -130,24 +131,44 @@ addProductToCart.addEventListener("click", (event) => {
         idProduit: addProductId,
     }
     console.log(addProductOptions)
-})
 
-
-/*===============   Local Storage   =========*/
+    /*===============   Local Storage   =========*/
 //Verifier si le local storage est vide, on va lire la clé produit via getItem
-let localStorageInit = localStorage.getItem("product")
+let localStorageInit = JSON.parse(localStorage.getItem("product"))
 //conversion des données js dans le localstorage en json via json.parse
 console.log(localStorageInit)
 
 //Si il y a ou non une clé des produits dans le localstorage 
 if (localStorageInit){
+    //Pour ajouter de nouveaux produits en plus
+    localStorageInit.push(addProductOptions)
+
+    /**Envoyer les produits choisi dans le localstorage 
+    * pour éviter l'effacement des produits lors deraffraichissement de page
+    * et creer la clé product
+    */
+     localStorage.setItem("product", JSON.stringify(localStorageInit))
+
+     console.log(localStorageInit)
 
 } else {
     //Creer un array vide
     localStorageInit = []
+    
+    //Mettre dans le tableau le contenu du lot de produits
+    localStorageInit.push(addProductOptions)
+    
+    /**Envoyer les produits choisi dans le localstorage 
+    * pour éviter l'effacement des produits lors deraffraichissement de page
+    * et creer la clé product
+    */
+    localStorage.setItem("product", JSON.stringify(localStorageInit))
+    
     console.log(localStorageInit)
 }
 
 
-//Importer données du lot de produit
+
+})
+
 
