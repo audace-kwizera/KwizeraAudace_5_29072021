@@ -49,7 +49,7 @@ function hydrateProduct(product) {
     document.getElementById("templateProduct__description").textContent = product.description
     document.getElementById("templateProduct__price").textContent = product.price
 
-  
+
 
     //Convertir les prix en euros
     product.price = product.price / 100
@@ -66,7 +66,7 @@ function hydrateProduct(product) {
         option.innerText = product.colors[i]
         colorsSelection.appendChild(option)
     }
-}   
+}
 
 //Recuperation des données séléctionnées par l'utilisateur et envoi au panier
 //Selection du nom du produit
@@ -97,40 +97,38 @@ const addProductQuantity = document.getElementById("templateProduct__quantite__n
 const addProductToCart = document.getElementById("templateProduct__link__add")
 //console.log(addProductToCart)
 
+
 //Envoyer le panier
 addProductToCart.addEventListener("click", (event) => {
     //Bloque la rectualisation de la page a l'appui du bouton
     event.preventDefault()
 
-/*==============    Creation Objet ========*/
+    /*==============    Creation Objet ========*/
 
-//Selection du nom du produit
-const addProductNameChoice = addProductName.innerHTML
-//console.log(addProductNameChoice)
+    //Selection du nom du produit
+    const addProductNameChoice = addProductName.innerHTML
+    //console.log(addProductNameChoice)
 
-//Mettre le choix de l'utilisateur pour l'option 
-const addProductChoice = addProductColor.value
-//console.log(addProductChoice)
+    //Mettre le choix de l'utilisateur pour l'option 
+    const addProductChoice = addProductColor.value
+    //console.log(addProductChoice)
 
-//Ajouter la quantité choisi par l'utilisateur 
-const addProductQuantityChoice = addProductQuantity.value
-//console.log(addProductQuantityChoice)
+    //Ajouter la quantité choisi par l'utilisateur 
+    const addProductQuantityChoice = addProductQuantity.value
+    //console.log(addProductQuantityChoice)
 
-//Ajuster le prix selon la quantité choisi par l'utilisateur 
-const addProductPriceQuantity = templateProduct__price.innerText
-//console.log(addProductPriceQuantity)
-
-
-
+    //Ajuster le prix selon la quantité choisi par l'utilisateur 
+    const addProductPriceQuantity = templateProduct__price.innerText
+    //console.log(addProductPriceQuantity)
 
     //Recuperer les données du lot produit à ajouter
-let addProductOptions = {
-    nomProduit: addProductNameChoice,
-    optionProduit: addProductChoice,
-    quantite: addProductQuantityChoice,
-    prix: addProductPriceQuantity,
-    idProduit: addProductId,
-}
-console.log(addProductOptions)
+    let addProductOptions = {
+        nomProduit: addProductNameChoice,
+        optionProduit: addProductChoice,
+        quantite: addProductQuantityChoice,
+        prix: addProductPriceQuantity,
+        idProduit: addProductId,
+    }
+    console.log(addProductOptions)
 })
 
