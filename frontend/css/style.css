@@ -103,7 +103,7 @@ footer ul {
 .templateProduct__image {
   overflow: hidden;
   padding-top: 14%;
-  padding-bottom: 5%;
+  width: 70%;
 }
 
 body {
