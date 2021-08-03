@@ -138,6 +138,20 @@ let localStorageInit = JSON.parse(localStorage.getItem("product"))
 //conversion des données js dans le localstorage en json via json.parse
 console.log(localStorageInit)
 
+//Petit message de confirmation
+const messageConfirmer = () => {
+    if(window.confirm( `Le gentil nounours ${addProductNameChoice} de couleur ${addProductChoice} a bien été ajouté :)
+    Pour voir le panier cliquez sur OK ou ANNULER pour revenir à l'accueil`)){
+
+//Adresse pour voir le panier
+window.location.href = "panier.html"
+    } else {
+        window.location.href = "index.html"
+
+    }
+    console.log(messageConfirmer)
+}
+
 //Si il y a ou non une clé des produits dans le localstorage 
 if (localStorageInit){
     //Pour ajouter de nouveaux produits en plus
@@ -149,7 +163,10 @@ if (localStorageInit){
     */
     localStorage.setItem("product", JSON.stringify(localStorageInit))
 
-     console.log(localStorageInit)
+    //Envoyer une confirmation pour le client
+    messageConfirmer()
+
+    console.log(localStorageInit)
 
 } else {
     //Creer un array vide
@@ -164,6 +181,9 @@ if (localStorageInit){
     */
     localStorage.setItem("product", JSON.stringify(localStorageInit))
     
+    //Envoyer une confirmation pour le client
+    messageConfirmer()
+
     console.log(localStorageInit)
 }
 
