@@ -136,7 +136,7 @@ addProductToCart.addEventListener("click", (event) => {
 //Verifier si le local storage est vide, on va lire la clé produit via getItem
 let localStorageInit = JSON.parse(localStorage.getItem("product"))
 //conversion des données js dans le localstorage en json via json.parse
-console.log(localStorageInit)
+//console.log(localStorageInit)
 
 //Petit message de confirmation
 const messageConfirmer = () => {
@@ -147,14 +147,11 @@ const messageConfirmer = () => {
 window.location.href = "panier.html"
     } else {
         window.location.href = "index.html"
-
     }
-    console.log(messageConfirmer)
 }
 
-//Si il y a ou non une clé des produits dans le localstorage 
-if (localStorageInit){
-    //Pour ajouter de nouveaux produits en plus
+//Ajout du lot dans le localstorage
+const ajoutLocalStorage = () => {
     localStorageInit.push(addProductOptions)
 
     /**Envoyer les produits choisi dans le localstorage 
@@ -162,29 +159,26 @@ if (localStorageInit){
     * et creer la clé product
     */
     localStorage.setItem("product", JSON.stringify(localStorageInit))
+}
+
+
+//Si il y a ou non une clé des produits dans le localstorage 
+if (localStorageInit){
+    //Pour ajouter de nouveaux produits en plus
+    ajoutLocalStorage()
 
     //Envoyer une confirmation pour le client
-    messageConfirmer()
-
-    console.log(localStorageInit)
+    messageConfirmer()   
 
 } else {
     //Creer un array vide
     localStorageInit = []
     
     //Mettre dans le tableau le contenu du lot de produits
-    localStorageInit.push(addProductOptions)
-    
-    /**Envoyer les produits choisi dans le localstorage 
-    * pour éviter l'effacement des produits lors deraffraichissement de page
-    * et creer la clé product
-    */
-    localStorage.setItem("product", JSON.stringify(localStorageInit))
+    ajoutLocalStorage()
     
     //Envoyer une confirmation pour le client
     messageConfirmer()
-
-    console.log(localStorageInit)
 }
 
 
