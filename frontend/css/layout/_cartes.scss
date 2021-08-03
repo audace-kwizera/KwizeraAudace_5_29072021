@@ -7,11 +7,12 @@
     text-align: center;
     width: 25%;
     margin: 2.5%;
+    &__image {
+        overflow: hidden;
+        padding-top: 14%;
+        width: 70%;
+    }
 }
 
-.templateProduct__image {
-    overflow: hidden;
-    padding-top: 14%;
-    width: 70%;
-}
+
 
