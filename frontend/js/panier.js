@@ -17,7 +17,7 @@ let panierRempli = []
  * Verifier si le panier est vide ou rempli
  */
 //si vide => afficher le panier est vide
-if (localStorageInit === null) {
+if (localStorageInit === null || localStorageInit == 0) {
     const panierVide = `<div class="templatePanier__message__vide">
     <h3>Votre panier est vide</h3>
 </div>`
@@ -41,7 +41,7 @@ if (localStorageInit === null) {
     if (j === localStorageInit.length) {
         selectionContenuPanier.innerHTML = panierRempli
     }
-} 
+}
 
 /**
  * Supprimer un produit du panier
@@ -50,14 +50,33 @@ let suppressionProduitPanier = document.querySelectorAll(".btn__supprimer")
 console.log(suppressionProduitPanier)
 
 //j'utilise k pour la boucle car i et j ont été utilisé
-for (let k = 0; k < suppressionProduitPanier.length; k++){
+for (let k = 0; k < suppressionProduitPanier.length; k++) {
     //evenement au clic
-    suppressionProduitPanier[k].addEventListener("click" , (event) =>{
+    suppressionProduitPanier[k].addEventListener("click", (event) => {
         event.preventDefault()
 
         //On selectionne l'id du produit 
         let suppressionProduitPanierId = localStorageInit[k].idProduit
         console.log("suppressionProduitPanierId")
         console.log(suppressionProduitPanierId)
+
+        /**
+         * supprimer les objets en cliquant sur le bouton
+         * en filtrant les elements à supprimer pour retourner 
+         * un nouveau array mis a jour avec fonction inverse "!"
+         * */
+        localStorageInit = localStorageInit.filter((el) => el.idProduit !== suppressionProduitPanierId)
+        console.log(localStorageInit)
+
+        /**Envoyer les produits choisi dans le localstorage 
+        * pour éviter l'effacement des produits lors deraffraichissement de page
+        * et creer la clé product
+        */
+        localStorage.setItem("product", JSON.stringify(localStorageInit))
+
+        //message suppression
+        alert ("Nounours supprimé du panier")
+        //Rechargement page
+        window.location.href = "panier.html"
     })
 }
