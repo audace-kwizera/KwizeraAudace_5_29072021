@@ -16,15 +16,19 @@ console.log(selectionContenuPanier)
  */
 //si vide => afficher le panier est vide
 if(localStorageInit === null) {
-const panierVide = `
-<div class="templatePanier__message__vide">
-    <div>Le panier est vide</div>
-</div>
-`
-localStorageInit.innerHTML = panierVide
-
-console.log("vide")
+const panierVide = `<div class="templatePanier__message__vide">
+    <div>Votre panier est vide</div>
+</div>`
+    selectionContenuPanier.innerHTML = panierVide
+//console.log("vide")
 } else {
+    //si rempli => afficher produit
+    let panierRempli = []
+
+    //on utilise k car i et j ont déjà été utilisés
+    for(k = 0; k < localStorageInit.length; k++)
+    console.log("iloveyou" + localStorageInit.length)
+
     console.log("rempli")
 }
 

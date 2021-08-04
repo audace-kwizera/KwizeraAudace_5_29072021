@@ -133,6 +133,10 @@ a {
   margin: 0;
 }
 
+.templatePanier__message {
+  text-align: center;
+}
+
 .containerPanier, .containerPanier__total {
   display: -webkit-box;
   display: -ms-flexbox;

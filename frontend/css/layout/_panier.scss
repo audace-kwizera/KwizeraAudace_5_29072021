@@ -14,6 +14,9 @@ a {
     @include flex_column_center;
     width: 100%;
     margin: 0;
+    &__message {
+        text-align: center;
+    }
 }
 
 .containerPanier, .containerPanier__total {
@@ -22,3 +25,4 @@ a {
     width: 100%;
     margin: 0;
 }
+
