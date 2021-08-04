@@ -44,21 +44,23 @@
 
         <div class="presentation">
             <h1 class="presentation__title">Votre Panier</h1>
-
-            <a href="index.html" class="btn btn__accueil presentation__link__accueil">Accueil</a>
         </div>
 
-        <div id="containerPanier">
-            <img src="imageUrl" alt="photo de" class="containerPanier__image" id="containerPanier__image" /> 
-            <h2 class="containerPanier__title" id="containerPanier__title">Nom</h2>
-            <p id="containerPanier__quantity" class="containerPanier__quantity">Quantité</p>
-            <p id="containerPanier__prix" class="containerPanier__prix">Prix</p>
-        </div>
+        <div id="templatePanier" class="templatePanier">
 
-        <div id="containerPanier__total">
-            <h3 id="containerPanier__total__montant" class="containerPanier__total__montant">Montant Total</h3>
-            <h4 id="containerPanier__total__prix" class="containerPanier__total__prix">1€</h4>
-            <a href="viderpanier.html" class="btn containerPanier__total__btn__remove" id="containerPanier__total__btn__remove">Vider le Panier</a>
+            <div id="templatePanier__message" class="templatePanier__message">
+                <h2>Votre panier est vide</h2>
+            </div>
+            
+            <div id="containerPanier" class="containerPanier">
+                <div>Quantité - nom produit</div>
+                <div>Prix - Supprimer l'article </div>
+            </div>
+
+            <div id="containerPanier__total" class="containerPanier__total">
+                <div>Montant Total = </div>
+                <div>Vider le panier</div>
+            </div>
         </div>
 
     </main>

@@ -1,4 +1,4 @@
-.templateProduct {
+.templateProduct, .containerPanier, .containerPanier__total {
     overflow: hidden;
     justify-content: center;
     text-align: center;
@@ -7,12 +7,21 @@
     text-align: center;
     width: 25%;
     margin: 2.5%;
+}
+
+.templateProduct {
     &__image {
         overflow: hidden;
         padding-top: 14%;
         width: 70%;
     }
 }
+
+
+
+
+
+
 
 
 

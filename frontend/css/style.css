@@ -87,7 +87,7 @@ footer ul {
   width: 50%;
 }
 
-.templateProduct {
+.templateProduct, .containerPanier, .containerPanier__total {
   overflow: hidden;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -115,5 +115,37 @@ body {
 
 a {
   text-decoration: none;
+}
+
+.templatePanier {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  margin: 0;
+}
+
+.containerPanier, .containerPanier__total {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0;
+  width: 100%;
+  margin: 0;
 }
 /*# sourceMappingURL=style.css.map */

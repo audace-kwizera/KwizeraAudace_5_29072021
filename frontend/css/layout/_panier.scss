@@ -9,3 +9,16 @@ a {
     text-decoration: none;
 }
 
+.templatePanier {
+    display: flex;
+    @include flex_column_center;
+    width: 100%;
+    margin: 0;
+}
+
+.containerPanier, .containerPanier__total {
+    @include flex_column_center;
+    margin: 0;
+    width: 100%;
+    margin: 0;
+}
