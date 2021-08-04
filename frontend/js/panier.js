@@ -11,25 +11,35 @@ console.log(localStorageInit)
 const selectionContenuPanier = document.querySelector("#templatePanier__message")
 console.log(selectionContenuPanier)
 
+let panierRempli = []
+
 /**
  * Verifier si le panier est vide ou rempli
  */
 //si vide => afficher le panier est vide
-if(localStorageInit === null) {
-const panierVide = `<div class="templatePanier__message__vide">
-    <div>Votre panier est vide</div>
+if (localStorageInit === null) {
+    const panierVide = `<div class="templatePanier__message__vide">
+    <h3>Votre panier est vide</h3>
 </div>`
     selectionContenuPanier.innerHTML = panierVide
-//console.log("vide")
+    //console.log("vide")
 } else {
     //si rempli => afficher produit
-    let panierRempli = []
-
     //on utilise k car i et j ont déjà été utilisés
-    for(k = 0; k < localStorageInit.length; k++)
-    console.log("iloveyou" + localStorageInit.length)
+    for (k = 0; k < localStorageInit.length; k++) {
+        //console.log(localStorageInit.length)
 
-    console.log("rempli")
-}
+        //Affichage de produit en boucle (la lettre k va permettre a for de rajouter les élements tant qu'il y en a)
+        panierRempli = panierRempli + `<div id="containerPanier" class="containerPanier">
+    <div>${localStorageInit[k].quantite} x Nounours ${localStorageInit[k].nomProduit} de couleur ${localStorageInit[k].optionProduit} produit</div>
+    <div>${localStorageInit[k].prix} - Supprimer l'article </div>
+</div>`
+        //console.log("rempli")
+    }
 
+    //Afficher le panier
+    if (k === localStorageInit.length) {
+        selectionContenuPanier.innerHTML = panierRempli
+    }
+} 
 
