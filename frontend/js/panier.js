@@ -32,7 +32,7 @@ if (localStorageInit === null) {
         //Affichage de produit en boucle (la lettre k va permettre a for de rajouter les élements tant qu'il y en a)
         panierRempli = panierRempli + `<div id="containerPanier" class="containerPanier">
     <div>${localStorageInit[j].quantite} x Nounours ${localStorageInit[j].nomProduit} de couleur ${localStorageInit[j].optionProduit} produit</div>
-    <div>${localStorageInit[j].prix} - <a class="btn btn__supprimer">Retirer</a </div>
+    <div>${localStorageInit[j].prix} - <a class="btn btn__supprimer">Retirer</a> </div>
 </div>`
         //console.log("rempli")
     }
@@ -46,5 +46,18 @@ if (localStorageInit === null) {
 /**
  * Supprimer un produit du panier
  */
-let suppressionProduitPanier = document.querySelector(".btn__supprimer")
+let suppressionProduitPanier = document.querySelectorAll(".btn__supprimer")
 console.log(suppressionProduitPanier)
+
+//j'utilise k pour la boucle car i et j ont été utilisé
+for (let k = 0; k < suppressionProduitPanier.length; k++){
+    //evenement au clic
+    suppressionProduitPanier[k].addEventListener("click" , (event) =>{
+        event.preventDefault()
+
+        //On selectionne l'id du produit 
+        let suppressionProduitPanierId = localStorageInit[k].idProduit
+        console.log("suppressionProduitPanierId")
+        console.log(suppressionProduitPanierId)
+    })
+}
