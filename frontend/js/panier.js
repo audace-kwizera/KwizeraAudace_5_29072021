@@ -25,20 +25,20 @@ if (localStorageInit === null) {
     //console.log("vide")
 } else {
     //si rempli => afficher produit
-    //on utilise k car i et j ont déjà été utilisés
-    for (k = 0; k < localStorageInit.length; k++) {
+    //on utilise k car i a déjà été utilisés
+    for (j = 0; j < localStorageInit.length; j++) {
         //console.log(localStorageInit.length)
 
         //Affichage de produit en boucle (la lettre k va permettre a for de rajouter les élements tant qu'il y en a)
         panierRempli = panierRempli + `<div id="containerPanier" class="containerPanier">
-    <div>${localStorageInit[k].quantite} x Nounours ${localStorageInit[k].nomProduit} de couleur ${localStorageInit[k].optionProduit} produit</div>
-    <div>${localStorageInit[k].prix} - Supprimer l'article </div>
+    <div>${localStorageInit[j].quantite} x Nounours ${localStorageInit[j].nomProduit} de couleur ${localStorageInit[j].optionProduit} produit</div>
+    <div>${localStorageInit[j].prix} - Supprimer l'article </div>
 </div>`
         //console.log("rempli")
     }
 
     //Afficher le panier
-    if (k === localStorageInit.length) {
+    if (j === localStorageInit.length) {
         selectionContenuPanier.innerHTML = panierRempli
     }
 } 
