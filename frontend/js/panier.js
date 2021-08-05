@@ -89,3 +89,22 @@ const viderProduitPanier = `<a id="btn__vider__panier" class="btn btn__vider__pa
 
 //*Aficher le lien d'un coup grâce à insertadjacenthtml avant la fin
 selectionContenuPanier.insertAdjacentHTML("beforeend", viderProduitPanier)
+
+//Recuperer infos lien vider panier
+const viderProduitPanierLink = document.querySelector("#btn__vider__panier")
+console.log(viderProduitPanierLink) 
+
+/**
+ * On va supprimer la key du localstorage pour vider le panier
+ */
+ viderProduitPanierLink.addEventListener("click", (event) => {
+     //stoppe comportement par default du bouton
+     event.preventDefault
+
+     //Vider local storage grâce à remove item
+     localStorage.removeItem("product")
+
+     //message confirmation panier vidé et rechargement de la page
+     alert("Vous avez vidé le panier")
+     window.location.href = "panier.html"
+ })
