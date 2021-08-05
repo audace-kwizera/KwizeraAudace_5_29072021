@@ -80,3 +80,12 @@ for (let k = 0; k < suppressionProduitPanier.length; k++) {
         window.location.href = "panier.html"
     })
 }
+
+/**
+ * On va mettre un lien pour vider le panier
+ */
+
+const viderProduitPanier = `<a id="btn__vider__panier" class="btn btn__vider__panier"> Vider le Panier </a>`
+
+//*Aficher le lien d'un coup grâce à insertadjacenthtml avant la fin
+selectionContenuPanier.insertAdjacentHTML("beforeend", viderProduitPanier)
