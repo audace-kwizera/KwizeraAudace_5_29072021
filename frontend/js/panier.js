@@ -99,7 +99,7 @@ console.log(viderProduitPanierLink)
  */
  viderProduitPanierLink.addEventListener("click", (event) => {
      //stoppe comportement par default du bouton
-     event.preventDefault
+     event.preventDefault()
 
      //Vider local storage grâce à remove item
      localStorage.removeItem("product")
