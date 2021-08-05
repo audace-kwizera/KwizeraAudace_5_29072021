@@ -118,5 +118,9 @@ console.log(viderProduitPanierLink)
  //Recuperation des prix i, j et k ont été utilisé alors on va utiliser l
  for (let l = 0; l < localStorageInit.length; l++){
      let panierRempliPrix = localStorageInit[l].prix
-     console.log(panierRempliPrix)
+     //Mettre les prix dans un array pour pouvoir les caluler, 
+     //on utilis push pour rajouter les elements
+     panierRempliPrixTotal.push(panierRempliPrix)
+
+     console.log(panierRempliPrixTotal)
  }
