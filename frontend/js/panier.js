@@ -108,3 +108,15 @@ console.log(viderProduitPanierLink)
      alert("Vous avez vidé le panier")
      window.location.href = "panier.html"
  })
+
+ /**
+  * Calcul total du panier en recuperant les prix des produits
+  */
+
+ let panierRempliPrixTotal = []
+
+ //Recuperation des prix i, j et k ont été utilisé alors on va utiliser l
+ for (let l = 0; l < localStorageInit.length; l++){
+     let panierRempliPrix = localStorageInit[l].prix
+     console.log(panierRempliPrix)
+ }
