@@ -112,8 +112,8 @@ console.log(viderProduitPanierLink)
  /**
   * Calcul total du panier en recuperant les prix des produits
   */
-
  let panierRempliPrixTotal = []
+ 
 
  //Recuperation des prix i, j et k ont été utilisé alors on va utiliser l
  for (let l = 0; l < localStorageInit.length; l++){
@@ -122,5 +122,28 @@ console.log(viderProduitPanierLink)
      //on utilis push pour rajouter les elements
      panierRempliPrixTotal.push(panierRempliPrix)
 
-     console.log(panierRempliPrixTotal)
+     //console.log(panierRempliPrixTotal)
  }
+ //On transforme les prix en nombre grâce à parsefloat
+ panierRempliPrixTotal = panierRempliPrixTotal.map((x) => parseFloat(x));
+
+ //On va faire le calcul pour obtenir le total de tous les produits avec reduce
+const reducer = (accumulator, currentValue) => accumulator + currentValue
+const prixTotalPanier = (panierRempliPrixTotal.reduce(reducer,0))
+
+//console.log(prixTotalPanier)
+
+
+/**
+ * Affichage du prix total
+ */
+
+const afficherPrixTotalPanier = `<div id="affichagePrixTotalPanier" class="affichagePrixTotalPanier">Prix Total: ${prixTotalPanier}</div>`
+//Afficher sur l'ecran
+selectionContenuPanier.insertAdjacentHTML("beforeend", afficherPrixTotalPanier)
+
+// Affichage du prix en euros
+affichagePrixTotalPanier.innerText = new Intl.NumberFormat("fr-FR", {
+    style: "currency",
+    currency: "EUR",
+}).format(prixTotalPanier);
