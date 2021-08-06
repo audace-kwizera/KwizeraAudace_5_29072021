@@ -75,7 +75,7 @@ for (let k = 0; k < suppressionProduitPanier.length; k++) {
         localStorage.setItem("product", JSON.stringify(localStorageInit))
 
         //message suppression
-        alert ("Nounours supprimé du panier")
+        alert("Nounours supprimé du panier")
         //Rechargement page
         window.location.href = "panier.html"
     })
@@ -92,44 +92,44 @@ selectionContenuPanier.insertAdjacentHTML("beforeend", viderProduitPanier)
 
 //Recuperer infos lien vider panier
 const viderProduitPanierLink = document.querySelector("#btn__vider__panier")
-console.log(viderProduitPanierLink) 
+console.log(viderProduitPanierLink)
 
 /**
  * On va supprimer la key du localstorage pour vider le panier
  */
- viderProduitPanierLink.addEventListener("click", (event) => {
-     //stoppe comportement par default du bouton
-     event.preventDefault()
+viderProduitPanierLink.addEventListener("click", (event) => {
+    //stoppe comportement par default du bouton
+    event.preventDefault()
 
-     //Vider local storage grâce à remove item
-     localStorage.removeItem("product")
+    //Vider local storage grâce à remove item
+    localStorage.removeItem("product")
 
-     //message confirmation panier vidé et rechargement de la page
-     alert("Vous avez vidé le panier")
-     window.location.href = "panier.html"
- })
+    //message confirmation panier vidé et rechargement de la page
+    alert("Vous avez vidé le panier")
+    window.location.href = "panier.html"
+})
 
- /**
-  * Calcul total du panier en recuperant les prix des produits
-  */
- let panierRempliPrixTotal = []
- 
+/**
+ * Calcul total du panier en recuperant les prix des produits
+ */
+let panierRempliPrixTotal = []
 
- //Recuperation des prix i, j et k ont été utilisé alors on va utiliser l
- for (let l = 0; l < localStorageInit.length; l++){
-     let panierRempliPrix = localStorageInit[l].prix
-     //Mettre les prix dans un array pour pouvoir les caluler, 
-     //on utilis push pour rajouter les elements
-     panierRempliPrixTotal.push(panierRempliPrix)
 
-     //console.log(panierRempliPrixTotal)
- }
- //On transforme les prix en nombre grâce à parsefloat
- panierRempliPrixTotal = panierRempliPrixTotal.map((x) => parseFloat(x));
+//Recuperation des prix i, j et k ont été utilisé alors on va utiliser l
+for (let l = 0; l < localStorageInit.length; l++) {
+    let panierRempliPrix = localStorageInit[l].prix
+    //Mettre les prix dans un array pour pouvoir les caluler, 
+    //on utilis push pour rajouter les elements
+    panierRempliPrixTotal.push(panierRempliPrix)
 
- //On va faire le calcul pour obtenir le total de tous les produits avec reduce
+    //console.log(panierRempliPrixTotal)
+}
+//On transforme les prix en nombre grâce à parsefloat
+panierRempliPrixTotal = panierRempliPrixTotal.map((x) => parseFloat(x));
+
+//On va faire le calcul pour obtenir le total de tous les produits avec reduce
 const reducer = (accumulator, currentValue) => accumulator + currentValue
-const prixTotalPanier = (panierRempliPrixTotal.reduce(reducer,0))
+const prixTotalPanier = (panierRempliPrixTotal.reduce(reducer, 0))
 
 //console.log(prixTotalPanier)
 
@@ -152,49 +152,72 @@ affichagePrixTotalPanier.innerText = new Intl.NumberFormat("fr-FR", {
 /**
  * Formulaire de livraison
  */
-  
+
 const affichageFormulaireLivraison = () => {
     //Selection de l'element du DOM
-const containerFormulaireLivraison = document.querySelector("#templatePanier__message")
+    const containerFormulaireLivraison = document.querySelector("#templatePanier__message")
 
-//Formulaire de Livraison
+    //Formulaire de Livraison
     const formulaireLivraison = `<div id="templateFormulaire" class="templateFormulaire">
     <h3>Formulaire de Livraison</h3>
 
     <form action="" method="POST" class="templateFormulaire__container">
         <label for="firstName">Prénom</label>
-        <input type="text" name="prenom" id="firstName" required>
+        <input type="text" name="firstName" id="firstName" required>
 
         <label for="lastName">Nom</label>
-        <input type="text" name="nom" id="lastName" required>
+        <input type="text" name="lastName" id="lastName" required>
 
         <label for="adress">Adresse</label>
-        <textarea name="adresse" id="adress" required></textarea>
+        <textarea name="adress" id="adress" required></textarea>
 
         <label for="city">Ville</label>
-        <input type="text" name="adresse" id="city" required>
+        <input type="text" name="city" id="city" required>
 
-        <label for="#">Code Postal</label>
-        <input type="text" name="code postal" id="postalCode" required>
+        <label for="postalCode">Code Postal</label>
+        <input type="text" name="postalCode" id="postalCode" required>
 
         <label for="email">Email</label>
-        <input type="email" name="adresse mail" id="email" required>
+        <input type="email" name="email" id="email" required>
 
-        <button id="btn__envoyer" type="submit" name="btn__envoyer">Confirmer le Paiement</button>
+        <button id="btn__envoyer__formulaire" type="submit" name="btn__envoyer__formulaire">Confirmer le Paiement</button>
     </form>
-</div>` 
+</div>`
 
-//Inserer Formulaire de Livraison
-containerFormulaireLivraison.insertAdjacentHTML("afterend", formulaireLivraison)
+    //Inserer Formulaire de Livraison
+    containerFormulaireLivraison.insertAdjacentHTML("afterend", formulaireLivraison)
 }
 
 //Afficher le formulaire
 affichageFormulaireLivraison()
 
 //On va creer l'evenement envoyer
-const boutonEnvoyerFormulaireLivraison = document.querySelector("#btn__envoyer")
-console.log(boutonEnvoyerFormulaireLivraison)
+const boutonEnvoyerFormulaireLivraison = document.querySelector("#btn__envoyer__formulaire")
+//console.log(boutonEnvoyerFormulaireLivraison)
+//On ecoute le click
+boutonEnvoyerFormulaireLivraison.addEventListener("click", (event)=>{
+    event.preventDefault()
 
-//Recuperation des infos pour les enregistrer dans le localstorage
-localStorage.setItem("prenom", document.querySelector("#firstName").value)
-console.log(document.querySelector("#firstName").value)
+    //Recuperation des infos pour les enregistrer dans le localstorage
+    localStorage.setItem("firstName", document.querySelector("#firstName").value)
+    localStorage.setItem("lastName", document.querySelector("#lastName").value)
+    localStorage.setItem("adress", document.querySelector("#adress").value)
+    localStorage.setItem("city", document.querySelector("#city").value)
+    localStorage.setItem("postalCode", document.querySelector("#postalCode").value)
+    localStorage.setItem("email", document.querySelector("#email").value)
+    //console.log(document.querySelector("#firstName").value)
+
+    //Stocker les infos dans un object
+const infoFormulaireLivraison = {
+    firstName: localStorage.getItem("firstName"),
+    lastName: localStorage.getItem("lastName"),
+    adress: localStorage.getItem("adress"),
+    city: localStorage.getItem("city"),
+    postalCode: localStorage.getItem("postalCode"),
+    email: localStorage.getItem("email")
+}
+
+console.log(infoFormulaireLivraison)
+}) 
+
+
