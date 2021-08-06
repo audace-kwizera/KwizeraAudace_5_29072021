@@ -208,6 +208,23 @@ const infoFormulaireLivraison = {
     email: document.querySelector("#email").value
 }
 
+
+/**
+ * Validation du formulaire grâce au regex 
+ * ^pour commencer la regex
+ * $pour terminer la regex
+ */
+//Verification
+const valueFirstName = infoFormulaireLivraison.firstName
+if(/^[A-Za-z]{2,20}$/.test(valueFirstName)){
+    console.log("OK")
+} else {
+    console.log("KO")
+}
+
+//console.log(valueFirstName)
+
+
 //Mettre les infos dans le localstorage en format json
 localStorage.setItem("infosFormulaireLivraison", JSON.stringify(infoFormulaireLivraison))
 
@@ -239,12 +256,5 @@ saisieInfoLocalStorage("city")
 saisieInfoLocalStorage("postalCode")
 saisieInfoLocalStorage("email")
 
-   // document.querySelector("#firstName").value = keyLocalStorageFormulaireLivraisonDonnee.firstName, 
-    //document.querySelector("#lastName").value = keyLocalStorageFormulaireLivraisonDonnee.lastName,
-    //document.querySelector("#address").value = keyLocalStorageFormulaireLivraisonDonnee.address,
-    //document.querySelector("#city").value = keyLocalStorageFormulaireLivraisonDonnee.city,
-    //document.querySelector("#postalCode").value = keyLocalStorageFormulaireLivraisonDonnee.postalCode,
-    //document.querySelector("#email").value = keyLocalStorageFormulaireLivraisonDonnee.email
+//console.log(keyLocalStorageFormulaireLivraisonDonnee)
 
-console.log("keyLocalStorageFormulaireLivraisonDonnee")
-console.log(keyLocalStorageFormulaireLivraisonDonnee)
