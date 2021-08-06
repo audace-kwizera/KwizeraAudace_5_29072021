@@ -218,6 +218,17 @@ const infoFormulaireLivraison = {
 }
 
 console.log(infoFormulaireLivraison)
+
+//console.log(infoFormulaireLivraison)
+
+//Preparer les données à envoyer
+const AjoutInfoFormulaireLivraison = {
+    localStorageInit, 
+    infoFormulaireLivraison
+}
+//console.log(AjoutInfoFormulaireLivraison)
+
+//Envoyer infos au serveur
 }) 
 
 
