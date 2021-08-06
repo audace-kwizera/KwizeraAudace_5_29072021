@@ -168,8 +168,8 @@ const affichageFormulaireLivraison = () => {
         <label for="lastName">Nom</label>
         <input type="text" name="lastName" id="lastName" required>
 
-        <label for="adress">Adresse</label>
-        <textarea name="adress" id="adress" required></textarea>
+        <label for="address">Adresse</label>
+        <textarea name="address" id="address" required></textarea>
 
         <label for="city">Ville</label>
         <input type="text" name="city" id="city" required>
@@ -202,7 +202,7 @@ boutonEnvoyerFormulaireLivraison.addEventListener("click", (event)=>{
 const infoFormulaireLivraison = {
     firstName: document.querySelector("#firstName").value,
     lastName: document.querySelector("#lastName").value,
-    adress: document.querySelector("#adress").value,
+    address: document.querySelector("#address").value,
     city: document.querySelector("#city").value,
     postalCode: document.querySelector("#postalCode").value,
     email: document.querySelector("#email").value
@@ -221,4 +221,19 @@ console.log(AjoutInfoFormulaireLivraison)
 //Envoyer infos au serveur
 }) 
 
+//Recuperer la key du localstorage
+const keyLocalStorageFormulaireLivraison = localStorage.getItem("infosFormulaireLivraison")
 
+//Transformer données du localstorage en json
+const keyLocalStorageFormulaireLivraisonDonnee = JSON.parse(keyLocalStorageFormulaireLivraison)
+
+//Garder les données saisie dans le formulaire même lors d'un ractualisation de page
+    document.querySelector("#firstName").value = keyLocalStorageFormulaireLivraisonDonnee.firstName, 
+    document.querySelector("#lastName").value = keyLocalStorageFormulaireLivraisonDonnee.lastName,
+    document.querySelector("#address").value = keyLocalStorageFormulaireLivraisonDonnee.address,
+    document.querySelector("#city").value = keyLocalStorageFormulaireLivraisonDonnee.city,
+    document.querySelector("#postalCode").value = keyLocalStorageFormulaireLivraisonDonnee.postalCode,
+    document.querySelector("#email").value = keyLocalStorageFormulaireLivraisonDonnee.email
+
+console.log("keyLocalStorageFormulaireLivraisonDonnee")
+console.log(keyLocalStorageFormulaireLivraisonDonnee)
