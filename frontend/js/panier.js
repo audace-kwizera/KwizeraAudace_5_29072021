@@ -198,35 +198,25 @@ const boutonEnvoyerFormulaireLivraison = document.querySelector("#btn__envoyer__
 boutonEnvoyerFormulaireLivraison.addEventListener("click", (event)=>{
     event.preventDefault()
 
-    //Recuperation des infos pour les enregistrer dans le localstorage
-    localStorage.setItem("firstName", document.querySelector("#firstName").value)
-    localStorage.setItem("lastName", document.querySelector("#lastName").value)
-    localStorage.setItem("adress", document.querySelector("#adress").value)
-    localStorage.setItem("city", document.querySelector("#city").value)
-    localStorage.setItem("postalCode", document.querySelector("#postalCode").value)
-    localStorage.setItem("email", document.querySelector("#email").value)
-    //console.log(document.querySelector("#firstName").value)
-
-    //Stocker les infos dans un object
+//On recupere les données du formulaire
 const infoFormulaireLivraison = {
-    firstName: localStorage.getItem("firstName"),
-    lastName: localStorage.getItem("lastName"),
-    adress: localStorage.getItem("adress"),
-    city: localStorage.getItem("city"),
-    postalCode: localStorage.getItem("postalCode"),
-    email: localStorage.getItem("email")
+    firstName: document.querySelector("#firstName").value,
+    lastName: document.querySelector("#lastName").value,
+    adress: document.querySelector("#adress").value,
+    city: document.querySelector("#city").value,
+    postalCode: document.querySelector("#postalCode").value,
+    email: document.querySelector("#email").value
 }
 
-console.log(infoFormulaireLivraison)
-
-//console.log(infoFormulaireLivraison)
+//Mettre les infos dans le localstorage en format json
+localStorage.setItem("infosFormulaireLivraison", JSON.stringify(infoFormulaireLivraison))
 
 //Preparer les données à envoyer
 const AjoutInfoFormulaireLivraison = {
     localStorageInit, 
     infoFormulaireLivraison
 }
-//console.log(AjoutInfoFormulaireLivraison)
+console.log(AjoutInfoFormulaireLivraison)
 
 //Envoyer infos au serveur
 }) 
