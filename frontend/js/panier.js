@@ -228,12 +228,23 @@ const keyLocalStorageFormulaireLivraison = localStorage.getItem("infosFormulaire
 const keyLocalStorageFormulaireLivraisonDonnee = JSON.parse(keyLocalStorageFormulaireLivraison)
 
 //Garder les données saisie dans le formulaire même lors d'un ractualisation de page
-    document.querySelector("#firstName").value = keyLocalStorageFormulaireLivraisonDonnee.firstName, 
-    document.querySelector("#lastName").value = keyLocalStorageFormulaireLivraisonDonnee.lastName,
-    document.querySelector("#address").value = keyLocalStorageFormulaireLivraisonDonnee.address,
-    document.querySelector("#city").value = keyLocalStorageFormulaireLivraisonDonnee.city,
-    document.querySelector("#postalCode").value = keyLocalStorageFormulaireLivraisonDonnee.postalCode,
-    document.querySelector("#email").value = keyLocalStorageFormulaireLivraisonDonnee.email
+function saisieInfoLocalStorage(saisie) {
+    document.querySelector(`#${saisie}`).value = keyLocalStorageFormulaireLivraisonDonnee[saisie]
+}
+
+saisieInfoLocalStorage("firstName")
+saisieInfoLocalStorage("lastName")
+saisieInfoLocalStorage("address")
+saisieInfoLocalStorage("city")
+saisieInfoLocalStorage("postalCode")
+saisieInfoLocalStorage("email")
+
+   // document.querySelector("#firstName").value = keyLocalStorageFormulaireLivraisonDonnee.firstName, 
+    //document.querySelector("#lastName").value = keyLocalStorageFormulaireLivraisonDonnee.lastName,
+    //document.querySelector("#address").value = keyLocalStorageFormulaireLivraisonDonnee.address,
+    //document.querySelector("#city").value = keyLocalStorageFormulaireLivraisonDonnee.city,
+    //document.querySelector("#postalCode").value = keyLocalStorageFormulaireLivraisonDonnee.postalCode,
+    //document.querySelector("#email").value = keyLocalStorageFormulaireLivraisonDonnee.email
 
 console.log("keyLocalStorageFormulaireLivraisonDonnee")
 console.log(keyLocalStorageFormulaireLivraisonDonnee)
