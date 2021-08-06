@@ -147,3 +147,54 @@ affichagePrixTotalPanier.innerText = new Intl.NumberFormat("fr-FR", {
     style: "currency",
     currency: "EUR",
 }).format(prixTotalPanier);
+
+
+/**
+ * Formulaire de livraison
+ */
+  
+const affichageFormulaireLivraison = () => {
+    //Selection de l'element du DOM
+const containerFormulaireLivraison = document.querySelector("#templatePanier__message")
+
+//Formulaire de Livraison
+    const formulaireLivraison = `<div id="templateFormulaire" class="templateFormulaire">
+    <h3>Formulaire de Livraison</h3>
+
+    <form action="" method="POST" class="templateFormulaire__container">
+        <label for="firstName">Prénom</label>
+        <input type="text" name="prenom" id="firstName" required>
+
+        <label for="lastName">Nom</label>
+        <input type="text" name="nom" id="lastName" required>
+
+        <label for="adress">Adresse</label>
+        <textarea name="adresse" id="adress" required></textarea>
+
+        <label for="city">Ville</label>
+        <input type="text" name="adresse" id="city" required>
+
+        <label for="#">Code Postal</label>
+        <input type="text" name="code postal" id="postalCode" required>
+
+        <label for="email">Email</label>
+        <input type="email" name="adresse mail" id="email" required>
+
+        <button id="btn__envoyer" type="submit" name="btn__envoyer">Confirmer le Paiement</button>
+    </form>
+</div>` 
+
+//Inserer Formulaire de Livraison
+containerFormulaireLivraison.insertAdjacentHTML("afterend", formulaireLivraison)
+}
+
+//Afficher le formulaire
+affichageFormulaireLivraison()
+
+//On va creer l'evenement envoyer
+const boutonEnvoyerFormulaireLivraison = document.querySelector("#btn__envoyer")
+console.log(boutonEnvoyerFormulaireLivraison)
+
+//Recuperation des infos pour les enregistrer dans le localstorage
+localStorage.setItem("prenom", document.querySelector("#firstName").value)
+console.log(document.querySelector("#firstName").value)
