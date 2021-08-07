@@ -223,6 +223,10 @@ boutonEnvoyerFormulaireLivraison.addEventListener("click", (event) => {
         return /^[0-9]{5}$/.test(value)
     }
 
+    const regExMail = (value) => {
+        return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value)
+    }
+
     //Erreur
     const regExAlertText = (value) => {
         return `Veuillez utiliser que des lettres pour écrire votre ${value} \n Entre 2 et 20 caractères`
@@ -230,6 +234,10 @@ boutonEnvoyerFormulaireLivraison.addEventListener("click", (event) => {
 
     const regExAlertNumber = (value) => {
         return `Veuillez utiliser que des nombres et entrer un ${value} valide`
+    }
+
+    const regExAlertMail = (value) => {
+        return `Veuillez entrer une ${value} valide`
     }
 
     //Verification des infos du formulaires
@@ -263,11 +271,21 @@ boutonEnvoyerFormulaireLivraison.addEventListener("click", (event) => {
         }
     }
 
+    function validationEmail() {
+        const valueEmail = infoFormulaireLivraison.email
+        if (regExMail(valueEmail)) {
+            return true
+        } else {
+            alert(regExAlertMail("adresse mail (par exemple norbert@orinoco.com)"))
+            return false
+        }
+    }
+
 
     /**
      * Validation des infos du formulaires
      */
-    if (validationFirstName() && validationLastName() && validationPostalCode()) {
+    if (validationFirstName() && validationLastName() && validationPostalCode() && validationEmail()) {
         //Mettre les infos dans le localstorage en format json
         localStorage.setItem("infosFormulaireLivraison", JSON.stringify(infoFormulaireLivraison))
     } else {
