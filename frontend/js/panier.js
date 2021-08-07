@@ -367,7 +367,11 @@ const keyLocalStorageFormulaireLivraisonDonnee = JSON.parse(keyLocalStorageFormu
 
 //Garder les données saisie dans le formulaire même lors d'un ractualisation de page
 function saisieInfoLocalStorage(saisie) {
-    document.querySelector(`#${saisie}`).value = keyLocalStorageFormulaireLivraisonDonnee[saisie]
+    if(keyLocalStorageFormulaireLivraisonDonnee == null){
+        console.log("nulll")
+    } else {
+        document.querySelector(`#${saisie}`).value = keyLocalStorageFormulaireLivraisonDonnee[saisie]
+    }
 }
 
 saisieInfoLocalStorage("firstName")
