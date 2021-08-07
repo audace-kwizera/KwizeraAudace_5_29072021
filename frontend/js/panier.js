@@ -214,16 +214,25 @@ boutonEnvoyerFormulaireLivraison.addEventListener("click", (event) => {
      * ^pour commencer la regex
      * $pour terminer la regex
      */
-    //Verification pour la validation des infos du formulaire
-
-    const regExAlertText = (value) => {
-        return `Veuillez utiliser que des lettres pour écrire votre ${value} \n Entre 2 et 20 caractères`
-    }
-
+    //Paramètres grace aux regex pour la validation des infos du formulaire
     const regExFirstNameLastNameCity = (value) => {
         return /^[A-Za-z]{2,20}$/.test(value)
     }
 
+    const regExPostalCode = (value) => {
+        return /^[0-9]{5}$/.test(value)
+    }
+
+    //Erreur
+    const regExAlertText = (value) => {
+        return `Veuillez utiliser que des lettres pour écrire votre ${value} \n Entre 2 et 20 caractères`
+    }
+
+    const regExAlertNumber = (value) => {
+        return `Veuillez utiliser que des nombres et entrer un ${value} valide`
+    }
+
+    //Verification des infos du formulaires
     function validationFirstName() {
         const valueFirstName = infoFormulaireLivraison.firstName
         if (regExFirstNameLastNameCity(valueFirstName)) {
@@ -244,11 +253,21 @@ boutonEnvoyerFormulaireLivraison.addEventListener("click", (event) => {
         }
     }
 
+    function validationPostalCode() {
+        const valuePostalCode = infoFormulaireLivraison.postalCode
+        if (regExPostalCode(valuePostalCode)) {
+            return true
+        } else {
+            alert(regExAlertNumber("Code Postal"))
+            return false
+        }
+    }
+
 
     /**
      * Validation des infos du formulaires
      */
-    if (validationFirstName() && validationLastName()) {
+    if (validationFirstName() && validationLastName() && validationPostalCode()) {
         //Mettre les infos dans le localstorage en format json
         localStorage.setItem("infosFormulaireLivraison", JSON.stringify(infoFormulaireLivraison))
     } else {
