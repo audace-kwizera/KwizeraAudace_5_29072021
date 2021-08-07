@@ -162,22 +162,22 @@ const affichageFormulaireLivraison = () => {
     <h3>Formulaire de Livraison</h3>
 
     <form action="" method="POST" class="templateFormulaire__container">
-        <label for="firstName">Prénom</label>
+        <label for="firstName">Prénom</label><span id="errorFirstName" class="errorFormValue"></span>
         <input type="text" name="firstName" id="firstName" required>
 
-        <label for="lastName">Nom</label>
+        <label for="lastName">Nom</label><span id="errorLastName" class="errorFormValue"></span>
         <input type="text" name="lastName" id="lastName" required>
 
-        <label for="address">Adresse</label>
+        <label for="address">Adresse</label><span id="errorAddress" class="errorFormValue"></span>
         <textarea name="address" id="address" required></textarea>
 
-        <label for="city">Ville</label>
+        <label for="city">Ville</label><span id="errorCity" class="errorFormValue"></span>
         <input type="text" name="city" id="city" required>
 
-        <label for="postalCode">Code Postal</label>
+        <label for="postalCode">Code Postal</label><span id="errorPostalCode" class="errorFormValue"></span>
         <input type="text" name="postalCode" id="postalCode" required>
 
-        <label for="email">Email</label>
+        <label for="email">Email</label><span id="errorEmail" class="errorFormValue"></span>
         <input type="email" name="email" id="email" required>
 
         <button id="btn__envoyer__formulaire" type="submit" name="btn__envoyer__formulaire">Confirmer le Paiement</button>
@@ -216,7 +216,7 @@ boutonEnvoyerFormulaireLivraison.addEventListener("click", (event) => {
      */
     //Paramètres grace aux regex pour la validation des infos du formulaire
     const regExFirstNameLastNameCity = (value) => {
-        return /^[A-Za-z]{2,20}$/.test(value)
+        return /^[A-Za-z\s]{2,20}$/.test(value)
     }
 
     const regExPostalCode = (value) => {
@@ -225,6 +225,10 @@ boutonEnvoyerFormulaireLivraison.addEventListener("click", (event) => {
 
     const regExMail = (value) => {
         return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value)
+    }
+
+    const regExAdress = (value) => {
+        return /^[A-Za-z0-9\s]{5,40}$/.test(value)
     }
 
     //Erreur
@@ -236,16 +240,31 @@ boutonEnvoyerFormulaireLivraison.addEventListener("click", (event) => {
         return `Veuillez utiliser que des nombres et entrer un ${value} valide`
     }
 
+    const regExAlertAdress = (value) => {
+        return `Veuillez indiquer une adresse valide`
+    }
+
     const regExAlertMail = (value) => {
         return `Veuillez entrer une ${value} valide`
+    }
+
+    //Message d'erraur 
+    function remplissageChampsOk(querySelectorId) {
+        document.querySelector(`#${querySelectorId}`).textContent = ""
+    }
+
+    function remplissageChampsKo(querySelectorId) {
+        document.querySelector(`#${querySelectorId}`).textContent = "Oups Petite Erreur, Veuillez Réessayer"
     }
 
     //Verification des infos du formulaires
     function validationFirstName() {
         const valueFirstName = infoFormulaireLivraison.firstName
         if (regExFirstNameLastNameCity(valueFirstName)) {
+            remplissageChampsOk("errorFirstName") 
             return true
         } else {
+            remplissageChampsKo("errorFirstName")
             alert(regExAlertText("Prénom"))
             return false
         }
@@ -254,9 +273,35 @@ boutonEnvoyerFormulaireLivraison.addEventListener("click", (event) => {
     function validationLastName() {
         const valueLastName = infoFormulaireLivraison.lastName
         if (regExFirstNameLastNameCity(valueLastName)) {
+            remplissageChampsOk("errorLastName") 
             return true
         } else {
+            remplissageChampsKo("errorLastName")
             alert(regExAlertText("Nom"))
+            return false
+        }
+    }
+
+    function validationAdress() {
+        const valueAdress = infoFormulaireLivraison.address
+        if (regExAdress(valueAdress)) {
+            remplissageChampsOk("errorAddress") 
+            return true
+        } else {
+            remplissageChampsKo("errorAddress")
+            alert(regExAlertAdress())
+            return false
+        }
+    }
+
+    function validationCity() {
+        const valueCity = infoFormulaireLivraison.city
+        if (regExFirstNameLastNameCity(valueCity)) {
+            remplissageChampsOk("errorCity") 
+            return true
+        } else {
+            remplissageChampsKo("errorCity")
+            alert(regExAlertText("Ville"))
             return false
         }
     }
@@ -264,8 +309,10 @@ boutonEnvoyerFormulaireLivraison.addEventListener("click", (event) => {
     function validationPostalCode() {
         const valuePostalCode = infoFormulaireLivraison.postalCode
         if (regExPostalCode(valuePostalCode)) {
+            remplissageChampsOk("errorPostalCode")
             return true
         } else {
+            remplissageChampsKo("errorPostalCode")
             alert(regExAlertNumber("Code Postal"))
             return false
         }
@@ -274,8 +321,10 @@ boutonEnvoyerFormulaireLivraison.addEventListener("click", (event) => {
     function validationEmail() {
         const valueEmail = infoFormulaireLivraison.email
         if (regExMail(valueEmail)) {
+            remplissageChampsOk("errorEmail")
             return true
         } else {
+            remplissageChampsKo("errorEmail")
             alert(regExAlertMail("adresse mail (par exemple norbert@orinoco.com)"))
             return false
         }
@@ -285,7 +334,12 @@ boutonEnvoyerFormulaireLivraison.addEventListener("click", (event) => {
     /**
      * Validation des infos du formulaires
      */
-    if (validationFirstName() && validationLastName() && validationPostalCode() && validationEmail()) {
+    if (validationFirstName()
+        && validationLastName()
+        && validationPostalCode()
+        && validationEmail()
+        && validationCity()
+        && validationAdress()) {
         //Mettre les infos dans le localstorage en format json
         localStorage.setItem("infosFormulaireLivraison", JSON.stringify(infoFormulaireLivraison))
     } else {
