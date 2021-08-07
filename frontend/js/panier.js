@@ -125,7 +125,7 @@ for (let l = 0; l < localStorageInit.length; l++) {
     //console.log(panierRempliPrixTotal)
 }
 //On transforme les prix en nombre grâce à parsefloat
-panierRempliPrixTotal = panierRempliPrixTotal.map((x) => parseFloat(x));
+panierRempliPrixTotal = panierRempliPrixTotal.map((x) => parseFloat(x))
 
 //On va faire le calcul pour obtenir le total de tous les produits avec reduce
 const reducer = (accumulator, currentValue) => accumulator + currentValue

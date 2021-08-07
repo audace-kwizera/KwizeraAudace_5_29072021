@@ -127,10 +127,16 @@ addProductToCart.addEventListener("click", (event) => {
         nomProduit: addProductNameChoice,
         optionProduit: addProductChoice,
         quantite: addProductQuantityChoice,
-        prix: addProductPriceQuantity,
+        prix: parseFloat(addProductPriceQuantity) * addProductQuantityChoice,
         idProduit: addProductId,
     }
     console.log(addProductOptions)
+
+    //Convertir les prix en euros
+    addProductOptions.prix = new Intl.NumberFormat("fr-FR", {
+        style: "currency",
+        currency: "EUR",
+    }).format(addProductOptions.prix);
 
     /*===============   Local Storage   =========*/
     //Verifier si le local storage est vide, on va lire la clé produit via getItem

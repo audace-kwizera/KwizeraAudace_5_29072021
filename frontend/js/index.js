@@ -52,16 +52,9 @@ function displayProduct(product) {
     cloneElt.getElementById("templateProduct__image").src = product.imageUrl
     cloneElt.getElementById("templateProduct__title").textContent = product.name
     cloneElt.getElementById("templateProduct__description").textContent = product.description
-    cloneElt.getElementById("templateProduct__price").textContent = product.price
+    cloneElt.getElementById("templateProduct__price").textContent = `${product.price / 100},00 €`
     cloneElt.getElementById("templateProduct__btn").href += "?id=" + product._id
 
     document.querySelector("main").appendChild(cloneElt)
-
-    //Convertir les prix en euros
-    /*product.price = product.price / 100
-    templateProduct__price.innerText = new Intl.NumberFormat("fr-FR", {
-        style: "currency",
-        currency: "EUR",
-    }).format(product.price);*/
     
 }
