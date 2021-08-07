@@ -195,48 +195,78 @@ affichageFormulaireLivraison()
 const boutonEnvoyerFormulaireLivraison = document.querySelector("#btn__envoyer__formulaire")
 //console.log(boutonEnvoyerFormulaireLivraison)
 //On ecoute le click
-boutonEnvoyerFormulaireLivraison.addEventListener("click", (event)=>{
+boutonEnvoyerFormulaireLivraison.addEventListener("click", (event) => {
     event.preventDefault()
 
-//On recupere les données du formulaire
-const infoFormulaireLivraison = {
-    firstName: document.querySelector("#firstName").value,
-    lastName: document.querySelector("#lastName").value,
-    address: document.querySelector("#address").value,
-    city: document.querySelector("#city").value,
-    postalCode: document.querySelector("#postalCode").value,
-    email: document.querySelector("#email").value
-}
+    //On recupere les données du formulaire
+    const infoFormulaireLivraison = {
+        firstName: document.querySelector("#firstName").value,
+        lastName: document.querySelector("#lastName").value,
+        address: document.querySelector("#address").value,
+        city: document.querySelector("#city").value,
+        postalCode: document.querySelector("#postalCode").value,
+        email: document.querySelector("#email").value
+    }
 
 
-/**
- * Validation du formulaire grâce au regex 
- * ^pour commencer la regex
- * $pour terminer la regex
- */
-//Verification
-const valueFirstName = infoFormulaireLivraison.firstName
-if(/^[A-Za-z]{2,20}$/.test(valueFirstName)){
-    console.log("OK")
-} else {
-    console.log("KO")
-}
+    /**
+     * Validation du formulaire grâce au regex 
+     * ^pour commencer la regex
+     * $pour terminer la regex
+     */
+    //Verification pour la validation des infos du formulaire
 
-//console.log(valueFirstName)
+    const regExAlertText = (value) => {
+        return `Veuillez utiliser que des lettres pour écrire votre ${value} \n Entre 2 et 20 caractères`
+    }
+
+    const regExFirstNameLastNameCity = (value) => {
+        return /^[A-Za-z]{2,20}$/.test(value)
+    }
+
+    function validationFirstName() {
+        const valueFirstName = infoFormulaireLivraison.firstName
+        if (regExFirstNameLastNameCity(valueFirstName)) {
+            return true
+        } else {
+            alert(regExAlertText("Prénom"))
+            return false
+        }
+    }
+
+    function validationLastName() {
+        const valueLastName = infoFormulaireLivraison.lastName
+        if (regExFirstNameLastNameCity(valueLastName)) {
+            return true
+        } else {
+            alert(regExAlertText("Nom"))
+            return false
+        }
+    }
 
 
-//Mettre les infos dans le localstorage en format json
-localStorage.setItem("infosFormulaireLivraison", JSON.stringify(infoFormulaireLivraison))
+    /**
+     * Validation des infos du formulaires
+     */
+    if (validationFirstName() && validationLastName()) {
+        //Mettre les infos dans le localstorage en format json
+        localStorage.setItem("infosFormulaireLivraison", JSON.stringify(infoFormulaireLivraison))
+    } else {
+        alert("Verifier votre reponse")
+    }
 
-//Preparer les données à envoyer
-const AjoutInfoFormulaireLivraison = {
-    localStorageInit, 
-    infoFormulaireLivraison
-}
-console.log(AjoutInfoFormulaireLivraison)
+    //console.log(valueFirstName)
 
-//Envoyer infos au serveur
-}) 
+
+    //Preparer les données à envoyer
+    const AjoutInfoFormulaireLivraison = {
+        localStorageInit,
+        infoFormulaireLivraison
+    }
+    console.log(AjoutInfoFormulaireLivraison)
+
+    //Envoyer infos au serveur
+})
 
 //Recuperer la key du localstorage
 const keyLocalStorageFormulaireLivraison = localStorage.getItem("infosFormulaireLivraison")
