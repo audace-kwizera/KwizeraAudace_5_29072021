@@ -373,7 +373,7 @@ boutonEnvoyerFormulaireLivraison.addEventListener("click", (event) => {
         .then((data) => {
 
             //On vide le panier après l'envoi 
-            //localStorage.clear()
+            localStorage.clear()
             console.log(data)
             
             //Création de l'id de la commande 
@@ -381,7 +381,7 @@ boutonEnvoyerFormulaireLivraison.addEventListener("click", (event) => {
           localStorage.setItem("total", prixPageConfirmation)
 
           //Redirection sur la page confirmation
-          //document.location.href = "confirmation.html";
+          document.location.href = "confirmation.html";
         })
         //Affichage du message d'erreur en cas d'erreur
         .catch((err) => {
