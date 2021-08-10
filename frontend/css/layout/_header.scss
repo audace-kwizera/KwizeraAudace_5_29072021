@@ -1,5 +1,5 @@
 header {
-    @include flex_row_space_around;
+    @include flex_row_center_text_align_center_align_items_center;
     background-color: $tertiary-color;
     & a {
         padding: 5.3%;
