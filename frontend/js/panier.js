@@ -2,14 +2,14 @@
 //Verifier si le local storage est vide, on va lire la clé produit via getItem
 let products = JSON.parse(localStorage.getItem("product"))
 //conversion des données js dans le localstorage en json via json.parse
-console.log(products)
+//console.log(products)
 
 /**
  * Selection de la classe html pour rajouter les produits
  */
 
 const selectionContenuPanier = document.querySelector("#templatePanier__message")
-console.log(selectionContenuPanier)
+//console.log(selectionContenuPanier)
 
 let panierRempli = []
 
@@ -47,7 +47,7 @@ if (products === null || products == 0) {
  * Supprimer un produit du panier
  */
 let suppressionProduitPanier = document.querySelectorAll(".btn__supprimer")
-console.log(suppressionProduitPanier)
+//console.log(suppressionProduitPanier)
 
 //j'utilise k pour la boucle car i et j ont été utilisé
 for (let k = 0; k < suppressionProduitPanier.length; k++) {
@@ -57,8 +57,8 @@ for (let k = 0; k < suppressionProduitPanier.length; k++) {
 
         //On selectionne l'id du produit 
         let suppressionProduitPanierId = products[k].idProduit
-        console.log("suppressionProduitPanierId")
-        console.log(suppressionProduitPanierId)
+        //console.log("suppressionProduitPanierId")
+        //console.log(suppressionProduitPanierId)
 
         /**
          * supprimer les objets en cliquant sur le bouton
@@ -66,7 +66,7 @@ for (let k = 0; k < suppressionProduitPanier.length; k++) {
          * un nouveau array mis a jour avec fonction inverse "!"
          * */
         products = products.filter((el) => el.idProduit !== suppressionProduitPanierId)
-        console.log(products)
+        //console.log(products)
 
         /**Envoyer les produits choisi dans le localstorage 
         * pour éviter l'effacement des produits lors deraffraichissement de page
@@ -92,7 +92,7 @@ selectionContenuPanier.insertAdjacentHTML("beforeend", viderProduitPanier)
 
 //Recuperer infos lien vider panier
 const viderProduitPanierLink = document.querySelector("#btn__vider__panier")
-console.log(viderProduitPanierLink)
+//console.log(viderProduitPanierLink)
 
 /**
  * On va supprimer la key du localstorage pour vider le panier
@@ -148,6 +148,13 @@ affichagePrixTotalPanier.innerText = new Intl.NumberFormat("fr-FR", {
     currency: "EUR",
 }).format(prixTotalPanier);
 
+let product = []
+product.push = products
+
+//console.log(product)
+
+
+
 
 /**
  * Formulaire de livraison
@@ -174,9 +181,6 @@ const affichageFormulaireLivraison = () => {
         <label for="city">Ville</label><span id="errorCity" class="errorFormValue"></span>
         <input type="text" name="city" id="city" required>
 
-        <label for="postalCode">Code Postal</label><span id="errorPostalCode" class="errorFormValue"></span>
-        <input type="text" name="postalCode" id="postalCode" required>
-
         <label for="email">Email</label><span id="errorEmail" class="errorFormValue"></span>
         <input type="email" name="email" id="email" required>
 
@@ -202,13 +206,13 @@ const boutonEnvoyerFormulaireLivraison = document.querySelector("#btn__envoyer__
 boutonEnvoyerFormulaireLivraison.addEventListener("click", (event) => {
     event.preventDefault()
 
+
     //On recupere les données du formulaire
     const contact = {
         firstName: document.querySelector("#firstName").value,
         lastName: document.querySelector("#lastName").value,
         address: document.querySelector("#address").value,
         city: document.querySelector("#city").value,
-        //postalCode: document.querySelector("#postalCode").value,
         email: document.querySelector("#email").value
     }
 
@@ -223,9 +227,6 @@ boutonEnvoyerFormulaireLivraison.addEventListener("click", (event) => {
         return /^([A-Za-z\s]{2,15})?([-]{0,1})?([A-Za-z\s]{2,15})$/.test(value)
     }
 
-    const regExPostalCode = (value) => {
-        return /^[0-9]{5}$/.test(value)
-    }
 
     const regExMail = (value) => {
         return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value)
@@ -240,9 +241,6 @@ boutonEnvoyerFormulaireLivraison.addEventListener("click", (event) => {
         return `Veuillez utiliser que des lettres pour écrire votre ${value} \n Entre 2 et 20 caractères`
     }
 
-    const regExAlertNumber = (value) => {
-        return `Veuillez utiliser que des nombres et entrer un ${value} valide`
-    }
 
     const regExAlertAdress = (value) => {
         return `Veuillez indiquer une adresse valide`
@@ -310,18 +308,6 @@ boutonEnvoyerFormulaireLivraison.addEventListener("click", (event) => {
         }
     }
 
-    function validationPostalCode() {
-        const valuePostalCode = contact.postalCode
-        if (regExPostalCode(valuePostalCode)) {
-            remplissageChampsOk("errorPostalCode")
-            return true
-        } else {
-            remplissageChampsKo("errorPostalCode")
-            alert(regExAlertNumber("Code Postal"))
-            return false
-        }
-    }
-
     function validationEmail() {
         const valueEmail = contact.email
         if (regExMail(valueEmail)) {
@@ -344,7 +330,7 @@ boutonEnvoyerFormulaireLivraison.addEventListener("click", (event) => {
         && validationCity()
         && validationEmail()) {
         //Mettre les infos dans le localstorage en format json
-        localStorage.setItem("infosFormulaireLivraison", JSON.stringify(contact))
+        localStorage.setItem("contact", JSON.stringify(contact))
     } else {
         alert("Verifier votre reponse")
     }
@@ -352,30 +338,64 @@ boutonEnvoyerFormulaireLivraison.addEventListener("click", (event) => {
     //console.log(valueFirstName)
 
 
-    //Preparer les données à envoyer
-    const AjoutInfoFormulaireLivraison = {
-        contact/*contact*/,
-        products/*productslocalStorageInit*/
+    /** 
+    Preparer les données de la commande à envoyer au serveur 
+    en récupérant les données pour l'api
+    */
+    const order = {
+        contact: {
+            firstName: contact.firstName,
+            lastName: contact.lastName,
+            address: contact.address,
+            city: contact.city,
+            email: contact.email
+        },
+        products: product,
     }
-    //console.log(Ajoutcontact)
+    //console.log(order)
+    
 
-/*
-    const envoiAuServeur = {
+    //Préparation de l'envoi
+    const options = {
         method: "POST",
-        body: JSON.stringify(AjoutInfoFormulaireLivraison),
+        body: JSON.stringify(order),
         headers: { "Content-Type": "application/json" },
       };
-      fetch("http://localhost:3000/api/teddies/order", envoiAuServeur)
 
-console.log(envoiAuServeur)*/
+      //Formatage du prix pour l'affichage en retour sur la page confirmation
+      let prixPageConfirmation = affichagePrixTotalPanier.innerText
+      prixPageConfirmation = prixPageConfirmation.split()
+      
+      //Envoi des données
+      fetch("http://localhost:3000/api/teddies/order", options)
+      //Reponse si tout est validé par l'api
+        .then((response) => response.json())
+        .then((data) => {
 
+            //On vide le panier après l'envoi 
+            //localStorage.clear()
+            console.log(data)
+            
+            //Création de l'id de la commande 
+          localStorage.setItem("orderId", data.orderId)
+          localStorage.setItem("total", prixPageConfirmation)
 
-
-    //Envoyer infos au serveur
+          //Redirection sur la page confirmation
+          //document.location.href = "confirmation.html";
+        })
+        //Affichage du message d'erreur en cas d'erreur
+        .catch((err) => {
+            alert("Oups ca ne marche pas, peut être une erreur" + err);
+        })
 })
 
+
+/** 
+ * Petites options pour le local storage 
+ */
+
 //Recuperer la key du localstorage
-const keyLocalStorageFormulaireLivraison = localStorage.getItem("infosFormulaireLivraison")
+const keyLocalStorageFormulaireLivraison = localStorage.getItem("contact")
 
 //Transformer données du localstorage en json
 const keyLocalStorageFormulaireLivraisonDonnee = JSON.parse(keyLocalStorageFormulaireLivraison)
@@ -399,3 +419,4 @@ saisieInfoLocalStorage("email")
 
 
 //utiliser id comme key pour verifier lors de l'ajout si l'id existe dejà pour l'addition des produits automatiquement
+
