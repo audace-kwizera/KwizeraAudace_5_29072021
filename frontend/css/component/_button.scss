@@ -1,11 +1,17 @@
 .btn {
     background-color: $primary-color;
     color: black;
-    margin: 1.5rem;
+    margin: 3rem;
+    padding: 4% 10%;
     font-family: monospace;
+    align-items: center;
+    width: 50%;
+    border: none;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    font-size: 1.3rem;
+    box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.5);
+    &:hover {
+    background: lighten($primary-color, 10);
+        box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.5);
+    }
 }
-
-.btn:hover {
-    background-color: $tertiary-color;
-}
-

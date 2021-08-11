@@ -4,6 +4,9 @@ header {
     & a {
         width: 30%;
         color: black;
+        &:hover {
+            color: lighten($primary-color, 10);
+            }
     }
     & nav {
         @include flex_row_center_text_align_center_align_items_center;

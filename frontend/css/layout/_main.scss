@@ -17,7 +17,7 @@ main {
 
 .slogan {
     text-align: center;
-    margin: 15% 5%;
+    margin: 10% 5%;
     width: 90%;
 }
 
@@ -27,7 +27,9 @@ main {
     &__container {
         background-color: $tertiary-color;
         margin: 15% 0;
+        height: 37rem;
     }
+    
     &__image {
         margin: 5% 0;
         width: 100%;
@@ -38,15 +40,48 @@ main {
         margin: 10% 5%;
         font-weight: 600;
     }
-}
-
-/*==    Grand Smartphone    ==*/
-@media (min-width: $big-smartphone) {
-    .slogan {
-        font-weight: 700;
+    &__price {
+        font-size: 1.2rem!important;
+        margin: 2.5rem;
     }
 }
 
+/***************************************************************************/
+/*==    Grand Smartphone    ==*/
+@media (min-width: $big-smartphone) {
+    /*  Presentation    */
+    .slogan {
+        font-weight: 700;
+    }
+
+    /*  Template    */
+    .templateProduct {
+        &__container {
+            height: 41rem;
+        }
+        &__description {
+            font-size: 1.2rem;
+        }
+    }
+    
+}
+
+/***************************************************************************/
+/*==    Petite Tablette    ==*/
+@media (min-width: $small-tablette) {
+
+    /*  Template    */
+    .templateProduct {
+        &__container {
+            height: 50rem;
+        }
+        &__description {
+            font-size: 1.4rem;
+        }
+    }
+}
+
+/***************************************************************************/
 /*==    Tablette    ==*/
 @media (min-width: $tablette) {
 
@@ -71,20 +106,23 @@ main {
         &__container {
             background-color: $tertiary-color;
             margin: 10% 0;
+            height: 60rem;
         }
         &__title {
             font-size: 1.8rem;
         }
         &__description {
-            margin: 7% 5%;
-            font-size: 1.5rem;
+            margin: 4% 5%;
+            font-size: 1.7rem;
         }
         &__price {
-            font-size: 1.8rem;
+            font-size: 1.8rem!important;
+            margin: 4rem!important;
         }
     }
 }
 
+/***************************************************************************/
 /*==    Grande Tablette    ==*/
 @media (min-width: $big-tablette) {
     
@@ -110,11 +148,16 @@ main {
         &__container {
             width: 40%;
             margin: 5%;
-            height: 40rem;
+            height: 44rem;
+        }
+        &__price {
+            font-size: 1.4rem!important;
+            margin: 2rem!important;
         }
     }
 }
-    
+
+/***************************************************************************/
 /*==    Grand Desktop   ==*/
 @media (min-width: $big-desktop) {
     
@@ -139,6 +182,10 @@ main {
         }
         &__container {
             height: 55rem;
+        }
+        &__price {
+            font-size: 1.8rem!important;
+            margin: 3rem!important;
         }
     }
 }
