@@ -1,16 +1,35 @@
 header {
-    @include flex_row_center_text_align_center_align_items_center;
+    @include flex_row_space_around_text_align_center_align_items_center ;
     background-color: $tertiary-color;
     & a {
-        padding: 5.3%;
-        width: 40%;
+        width: 30%;
     }
     & nav {
-        width: 60%;
+        @include flex_row_center_text_align_center_align_items_center;
+        width: 70%;
     }
     & ul {
         @include flex_row_space_around;
+        list-style: none;
         width: 100%;
-        padding: 2.4%;
+    }
+}
+
+/*==    Tablette    ==*/
+@media (min-width: $tablette) {
+    header {
+        padding: 0.5rem;
+        & a {
+            font-size: 1.3rem;
+        }
+    }
+}
+
+/*==    Tablette    ==*/
+@media (min-width: $big-desktop) {
+    header {
+        & a {
+            font-size: 1.5rem;
+        }
     }
 }

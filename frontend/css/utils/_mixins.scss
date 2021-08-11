@@ -5,6 +5,13 @@
     align-items: center;
 }
 
+@mixin flex_row_space-around_text_align_center_align_items_center {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+}
+
 @mixin flex_row_space_around {
     display: flex;
     justify-content: space-around;
