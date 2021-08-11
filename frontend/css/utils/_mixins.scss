@@ -5,9 +5,17 @@
     align-items: center;
 }
 
-@mixin flex_row_space-around_text_align_center_align_items_center {
+@mixin flex_row_space_around_text_align_center_align_items_center {
     display: flex;
     justify-content: space-around;
+    text-align: center;
+    align-items: center;
+}
+
+@mixin flex_column_center_text_align_center_align_items_center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
     align-items: center;
 }

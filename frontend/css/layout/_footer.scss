@@ -1,6 +1,16 @@
 footer {
+    @include flex_column_center_text_align_center_align_items_center;
+    background-color: $primary-color;
     &  ul {
     @include flex_column;
+    list-style: none;
     width: 50%;
+    margin: 0;
+    padding: 5% 10%; 
+    width: 80%;
+    & a {
+        color: black;
+        font-weight: 700;
+    }
     }
 }

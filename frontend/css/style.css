@@ -36,6 +36,7 @@ header {
 
 header a {
   width: 30%;
+  color: black;
 }
 
 header nav {
@@ -106,6 +107,24 @@ header ul {
   background-color: #99E2D0;
 }
 
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f0f0c5;
+}
+
 footer ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -114,7 +133,16 @@ footer ul {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  list-style: none;
   width: 50%;
+  margin: 0;
+  padding: 5% 10%;
+  width: 80%;
+}
+
+footer ul a {
+  color: black;
+  font-weight: 700;
 }
 
 .templateProduct, .containerPanier, .containerPanier__total {
