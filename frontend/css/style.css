@@ -73,38 +73,98 @@ header ul {
   }
 }
 
-/*==    Tablette    ==*/
+/*==    Desktop    ==*/
 @media (min-width: 1400px) {
   header a {
     font-size: 1.5rem;
   }
 }
 
+/*=     Main     =*/
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 12%;
+}
+
 /*  Presentation    */
 .presentation__title {
-  width: 70%;
-  margin: 15%;
+  width: 90%;
   text-align: center;
+  margin: 15% 5%;
 }
 
 .slogan {
   text-align: center;
-  width: 60%;
-  margin: 5% 20%;
+  margin: 15% 5%;
+  width: 90%;
 }
 
-.filtres {
-  width: 60%;
-  margin: 5% 20%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-.filtres__container {
+/*  Template    */
+.templateProduct__container {
   background-color: #99E2D0;
+  margin: 15% 0;
+}
+
+.templateProduct__image {
+  margin: 5% 0;
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.templateProduct__description {
+  margin: 10% 5%;
+  font-weight: 600;
+}
+
+/*==    Grand Smartphone    ==*/
+@media (min-width: 420px) {
+  .slogan {
+    font-weight: 700;
+  }
+}
+
+/*==    Tablette    ==*/
+@media (min-width: 768px) {
+  /*  Presentation    */
+  .presentation__title {
+    font-size: 2rem;
+    margin: 5% 5%;
+    font-weight: 800;
+  }
+  .slogan {
+    margin: 15% 5%;
+    font-size: 1.4rem;
+  }
+  /*  Template    */
+  .templateProduct__container {
+    background-color: #99E2D0;
+    margin: 10% 0;
+  }
+  .templateProduct__title {
+    font-size: 1.8rem;
+  }
+  .templateProduct__description {
+    margin: 7% 5%;
+    font-size: 1.5rem;
+  }
+  .templateProduct__price {
+    font-size: 1.8rem;
+  }
 }
 
 footer {

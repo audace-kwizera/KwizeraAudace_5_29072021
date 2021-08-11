@@ -1,23 +1,85 @@
+/*=     Main     =*/
+main {
+    @include flex_column_center_text_align_center_align_items_center;
+    padding: 12%;
+}
+
+
 /*  Presentation    */
 .presentation {
     &__title {
-        width: 70%;
-        margin: 15%;
+        width: 90%;
         text-align: center;
+        margin: 15% 5%;
     }
 }
 
 .slogan {
     text-align: center;
-    width: 60%;
-    margin: 5% 20%;
+    margin: 15% 5%;
+    width: 90%;
 }
 
-.filtres{
-    width: 60%;
-    margin: 5% 20%;
-    @include flex_row_space_around;
+/*  Template    */
+
+.templateProduct {
     &__container {
         background-color: $tertiary-color;
+        margin: 15% 0;
+    }
+    &__image {
+        margin: 5% 0;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+    &__description {
+        margin: 10% 5%;
+        font-weight: 600;
+    }
+}
+
+/*==    Grand Smartphone    ==*/
+@media (min-width: $big-smartphone) {
+    .slogan {
+        font-weight: 700;
+    }
+}
+
+/*==    Tablette    ==*/
+@media (min-width: $tablette) {
+
+    /*  Presentation    */
+
+    .presentation {
+        &__title {
+            font-size: 2rem;
+            margin: 5% 5%;
+            font-weight: 800;
+        }
+    }
+
+    .slogan {
+        margin: 15% 5%;
+        font-size: 1.4rem;
+    }
+
+    /*  Template    */
+
+    .templateProduct {
+        &__container {
+            background-color: $tertiary-color;
+            margin: 10% 0;
+        }
+        &__title {
+            font-size: 1.8rem;
+        }
+        &__description {
+            margin: 7% 5%;
+            font-size: 1.5rem;
+        }
+        &__price {
+            font-size: 1.8rem;
+        }
     }
 }
