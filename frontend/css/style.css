@@ -85,10 +85,6 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -96,6 +92,8 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   padding: 12%;
 }
 
@@ -164,6 +162,46 @@ main {
   }
   .templateProduct__price {
     font-size: 1.8rem;
+  }
+}
+
+/*==    Grande Tablette    ==*/
+@media (min-width: 1024px) {
+  /*  Presentation    */
+  .presentation__title {
+    font-size: 2rem;
+  }
+  .slogan {
+    margin: 5% 5%;
+    font-size: 1.2rem;
+  }
+  /*  Template    */
+  .templateProduct__image {
+    height: 10rem;
+  }
+  .templateProduct__container {
+    width: 40%;
+    margin: 5%;
+    height: 40rem;
+  }
+}
+
+/*==    Grand Desktop   ==*/
+@media (min-width: 1400px) {
+  /*  Presentation    */
+  .presentation__title {
+    font-size: 2.5rem;
+    margin: 0.5% 5%;
+  }
+  .slogan {
+    font-size: 1.8rem;
+  }
+  /*  Template    */
+  .templateProduct__image {
+    height: 20rem;
+  }
+  .templateProduct__container {
+    height: 55rem;
   }
 }
 

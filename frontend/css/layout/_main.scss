@@ -1,6 +1,7 @@
 /*=     Main     =*/
 main {
-    @include flex_column_center_text_align_center_align_items_center;
+    @include flex_row_center_text_align_center_align_items_center;
+    flex-wrap: wrap;
     padding: 12%;
 }
 
@@ -83,3 +84,63 @@ main {
         }
     }
 }
+
+/*==    Grande Tablette    ==*/
+@media (min-width: $big-tablette) {
+    
+    /*  Presentation    */
+
+    .presentation {
+        &__title {
+            font-size: 2rem;
+        }
+    }
+
+    .slogan {
+        margin: 5% 5%;
+        font-size: 1.2rem;
+    }
+
+    /*  Template    */
+
+    .templateProduct {
+        &__image {
+            height: 10rem;
+        }
+        &__container {
+            width: 40%;
+            margin: 5%;
+            height: 40rem;
+        }
+    }
+}
+    
+/*==    Grand Desktop   ==*/
+@media (min-width: $big-desktop) {
+    
+    /*  Presentation    */
+
+    .presentation {
+        &__title {
+            font-size: 2.5rem;
+            margin: 0.5% 5%;
+        }
+    }
+
+    .slogan {
+        font-size: 1.8rem;
+    }
+
+    /*  Template    */
+
+    .templateProduct {
+        &__image {
+            height: 20rem;
+        }
+        &__container {
+            height: 55rem;
+        }
+    }
+}
+    
+
