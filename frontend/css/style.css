@@ -212,7 +212,7 @@ main {
 }
 
 /***************************************************************************/
-/*==    Grand Smartphone    ==*/
+/*==    Grand Smartphone + 420px    ==*/
 @media (min-width: 420px) {
   /*  Presentation    */
   .slogan {
@@ -228,19 +228,29 @@ main {
 }
 
 /***************************************************************************/
-/*==    Petite Tablette    ==*/
+/*==    Petite Tablette + 600px    ==*/
 @media (min-width: 600px) {
   /*  Template    */
   .templateProduct__container {
     height: 50rem;
   }
+  .templateProduct__image__product {
+    width: 90% !important;
+    padding: 0 !important;
+  }
   .templateProduct__description {
     font-size: 1.4rem;
+  }
+  .templateProduct__description__product {
+    margin: 1.5rem;
+  }
+  .templateProduct__price__product {
+    font-size: 1.5rem !important;
   }
 }
 
 /***************************************************************************/
-/*==    Tablette    ==*/
+/*==    Tablette + 768px   ==*/
 @media (min-width: 768px) {
   /*  Presentation    */
   .presentation__title {
@@ -272,7 +282,7 @@ main {
 }
 
 /***************************************************************************/
-/*==    Grande Tablette    ==*/
+/*==    Grande Tablette + 1024px     ==*/
 @media (min-width: 1024px) {
   /*  Presentation    */
   .presentation__title {
@@ -298,7 +308,7 @@ main {
 }
 
 /***************************************************************************/
-/*==    Grand Desktop   ==*/
+/*==    Grand Desktop + 1400px   ==*/
 @media (min-width: 1400px) {
   /*  Presentation    */
   .presentation__title {

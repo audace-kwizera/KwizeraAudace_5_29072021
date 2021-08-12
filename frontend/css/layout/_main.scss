@@ -89,7 +89,7 @@ main {
 }
 
 /***************************************************************************/
-/*==    Grand Smartphone    ==*/
+/*==    Grand Smartphone + 420px    ==*/
 @media (min-width: $big-smartphone) {
     /*  Presentation    */
     .slogan {
@@ -109,7 +109,7 @@ main {
 }
 
 /***************************************************************************/
-/*==    Petite Tablette    ==*/
+/*==    Petite Tablette + 600px    ==*/
 @media (min-width: $small-tablette) {
 
     /*  Template    */
@@ -117,14 +117,29 @@ main {
         &__container {
             height: 50rem;
         }
+        &__image {
+            &__product {
+                width: 90%!important;
+                padding: 0!important;
+            }
+        }
         &__description {
             font-size: 1.4rem;
+            &__product {
+            margin: 1.5rem;
+            }
         }
+        &__price {
+            &__product {
+                font-size: 1.5rem!important;
+            }
+        }
+
     }
 }
 
 /***************************************************************************/
-/*==    Tablette    ==*/
+/*==    Tablette + 768px   ==*/
 @media (min-width: $tablette) {
 
     /*  Presentation    */
@@ -165,7 +180,7 @@ main {
 }
 
 /***************************************************************************/
-/*==    Grande Tablette    ==*/
+/*==    Grande Tablette + 1024px     ==*/
 @media (min-width: $big-tablette) {
     
     /*  Presentation    */
@@ -200,7 +215,7 @@ main {
 }
 
 /***************************************************************************/
-/*==    Grand Desktop   ==*/
+/*==    Grand Desktop + 1400px   ==*/
 @media (min-width: $big-desktop) {
     
     /*  Presentation    */
