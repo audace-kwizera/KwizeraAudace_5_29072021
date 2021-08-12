@@ -88,6 +88,20 @@ main {
     }
 }
 
+.containerPanier {
+    @include flex_column_center_text_align_center_align_items_center;
+    &__description {
+        margin: 1rem;
+    }
+    &__prix {
+        @include flex_column_center_text_align_center_align_items_center
+    }
+    & a {
+        margin: 1rem;
+        width: 100%;
+    }
+}
+
 /***************************************************************************/
 /*==    Grand Smartphone + 420px    ==*/
 @media (min-width: $big-smartphone) {
@@ -286,7 +300,11 @@ main {
 
     .templateProduct {
         &__image {
+            width: 100%!important;
+            height: 20rem;
+            &__product {
             width: 80%!important;
+            }
         }
         &__container {
             height: 55rem;
@@ -295,8 +313,12 @@ main {
             margin: 1% 8%!important;
         }
         &__price {
+            font-size: 1.7rem!important;
+            margin: 3rem!important;
+            &__product {
             font-size: 1.8rem!important;
             margin: 1%!important;
+            }
         }
     }
 }

@@ -31,8 +31,8 @@ if (products === null || products == 0) {
 
         //Affichage de produit en boucle (la lettre k va permettre a for de rajouter les élements tant qu'il y en a)
         panierRempli = panierRempli + `<div id="containerPanier" class="containerPanier">
-    <div>${products[j].quantite} x Nounours ${products[j].nomProduit} de couleur ${products[j].optionProduit} produit</div>
-    <div>${products[j].prix} - <a class="btn btn__supprimer">Retirer</a> </div>
+    <div class="containerPanier__description">${products[j].quantite} x Nounours ${products[j].nomProduit} de couleur ${products[j].optionProduit} produit</div>
+    <div class="containerPanier__prix">${products[j].prix} - <a class="btn btn__supprimer">Retirer</a> </div>
 </div>`
         //console.log("rempli")
     }

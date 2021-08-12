@@ -8,6 +8,7 @@
 /** Style général du site */
 body {
   font-family: "Gill Sans", sans-serif, "Roboto", sans-serif, "Helvetica Neue", sans-serif;
+  max-width: 2048px;
 }
 
 .btn {
@@ -211,6 +212,49 @@ main {
   padding: 0.3rem;
 }
 
+.containerPanier {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.containerPanier__description {
+  margin: 1rem;
+}
+
+.containerPanier__prix {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.containerPanier a {
+  margin: 1rem;
+  width: 100%;
+}
+
 /***************************************************************************/
 /*==    Grand Smartphone + 420px    ==*/
 @media (min-width: 420px) {
@@ -376,6 +420,10 @@ main {
   }
   /*  Template    */
   .templateProduct__image {
+    width: 100% !important;
+    height: 20rem;
+  }
+  .templateProduct__image__product {
     width: 80% !important;
   }
   .templateProduct__container {
@@ -385,6 +433,10 @@ main {
     margin: 1% 8% !important;
   }
   .templateProduct__price {
+    font-size: 1.7rem !important;
+    margin: 3rem !important;
+  }
+  .templateProduct__price__product {
     font-size: 1.8rem !important;
     margin: 1% !important;
   }
