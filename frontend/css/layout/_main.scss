@@ -286,7 +286,7 @@ main {
 
     .templateProduct {
         &__image {
-            height: 20rem;
+            width: 80%!important;
         }
         &__container {
             height: 55rem;
@@ -296,7 +296,7 @@ main {
         }
         &__price {
             font-size: 1.8rem!important;
-            margin: 1%;
+            margin: 1%!important;
         }
     }
 }

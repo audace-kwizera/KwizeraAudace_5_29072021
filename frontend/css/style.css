@@ -376,7 +376,7 @@ main {
   }
   /*  Template    */
   .templateProduct__image {
-    height: 20rem;
+    width: 80% !important;
   }
   .templateProduct__container {
     height: 55rem;
@@ -386,7 +386,7 @@ main {
   }
   .templateProduct__price {
     font-size: 1.8rem !important;
-    margin: 1%;
+    margin: 1% !important;
   }
 }
 
