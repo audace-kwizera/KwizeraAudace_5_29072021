@@ -291,9 +291,12 @@ main {
         &__container {
             height: 55rem;
         }
+        &__product {
+            margin: 1% 8%!important;
+        }
         &__price {
             font-size: 1.8rem!important;
-            margin: 3rem!important;
+            margin: 1%;
         }
     }
 }

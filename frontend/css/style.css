@@ -381,9 +381,12 @@ main {
   .templateProduct__container {
     height: 55rem;
   }
+  .templateProduct__product {
+    margin: 1% 8% !important;
+  }
   .templateProduct__price {
     font-size: 1.8rem !important;
-    margin: 3rem !important;
+    margin: 1%;
   }
 }
 
