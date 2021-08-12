@@ -20,9 +20,56 @@ a {
 }
 
 .containerPanier, .containerPanier__total {
-    @include flex_column_center;
+    @include flex_column_center_text_align_center_align_items_center;
     margin: 0;
     width: 100%;
     margin: 0;
+}
+
+.containerPanier {
+    margin: 2rem 0!important;
+    &__description {
+        margin: 1rem;
+    }
+    &__prix {
+        @include flex_column_center_text_align_center_align_items_center;
+    }
+    & a {
+        margin: 1rem;
+        width: 100%;
+    }
+}
+
+.affichagePrixTotalPanier {
+    font-size: 1.3rem;
+    margin: 1.5rem 0;
+}
+
+
+/***************************************************************************/
+/*==    Grand Smartphone + 420px    ==*/
+@media (min-width: $big-smartphone) {
+
+.containerPanier {
+    font-size: 1.3rem;
+    }
+}
+
+/***************************************************************************/
+/*==    Petite Tablette + 600px    ==*/
+@media (min-width: $small-tablette) {
+    .containerPanier {
+        font-size: 1.5rem;
+    }
+}
+
+/***************************************************************************/
+/*==    Grande Tablette + 1024px     ==*/
+@media (min-width: $big-tablette) {
+
+    .containerPanier {
+        font-size: 1.8rem;
+        margin: 2rem 0 !important;
+    }
 }
 

@@ -88,44 +88,6 @@ main {
     }
 }
 
-.containerPanier {
-    @include flex_column_center_text_align_center_align_items_center;
-    margin: 2rem 0!important;
-    &__description {
-        margin: 1rem;
-    }
-    &__prix {
-        @include flex_column_center_text_align_center_align_items_center;
-    }
-    & a {
-        margin: 1rem;
-        width: 100%;
-    }
-}
-
-.affichagePrixTotalPanier {
-    font-size: 1.3rem;
-    margin: 1.5rem 0;
-}
-
-.templateFormulaire__container {
-    @include flex_column_center_text_align_center_align_items_center;
-    font-size: 1.4rem;
-    & label {
-        margin: 0.5rem;
-    }
-    & input {
-        margin: 0.5rem;
-        width: 100%;
-        font-size: 1.4rem;
-    }
-    & textarea {
-        margin: 0.5rem;
-        width: 100%;
-        font-size: 1.4rem;
-    }
-}
-
 /***************************************************************************/
 /*==    Grand Smartphone + 420px    ==*/
 @media (min-width: $big-smartphone) {
@@ -143,11 +105,6 @@ main {
             font-size: 1.2rem;
         }
     }
-
-    .containerPanier {
-        font-size: 1.3rem;
-    }
-    
 }
 
 /***************************************************************************/
@@ -177,10 +134,6 @@ main {
             }
         }
 
-    }
-
-    .containerPanier {
-        font-size: 1.5rem;
     }
 }
 
@@ -308,11 +261,6 @@ main {
             display: flex;
             flex-wrap: wrap;
         }
-    }
-
-    .containerPanier {
-        font-size: 1.8rem;
-        margin: 2rem 0 !important;
     }
 }
 

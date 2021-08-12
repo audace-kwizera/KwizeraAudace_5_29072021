@@ -44,6 +44,12 @@ body {
   margin: 2rem;
 }
 
+.templateProduct__btn__visit {
+  margin: 0;
+  font-size: 1rem;
+  padding: 1rem;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -223,89 +229,6 @@ main {
   padding: 0.3rem;
 }
 
-.containerPanier {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 2rem 0 !important;
-}
-
-.containerPanier__description {
-  margin: 1rem;
-}
-
-.containerPanier__prix {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.containerPanier a {
-  margin: 1rem;
-  width: 100%;
-}
-
-.affichagePrixTotalPanier {
-  font-size: 1.3rem;
-  margin: 1.5rem 0;
-}
-
-.templateFormulaire__container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 1.4rem;
-}
-
-.templateFormulaire__container label {
-  margin: 0.5rem;
-}
-
-.templateFormulaire__container input {
-  margin: 0.5rem;
-  width: 100%;
-  font-size: 1.4rem;
-}
-
-.templateFormulaire__container textarea {
-  margin: 0.5rem;
-  width: 100%;
-  font-size: 1.4rem;
-}
-
 /***************************************************************************/
 /*==    Grand Smartphone + 420px    ==*/
 @media (min-width: 420px) {
@@ -319,9 +242,6 @@ main {
   }
   .templateProduct__description {
     font-size: 1.2rem;
-  }
-  .containerPanier {
-    font-size: 1.3rem;
   }
 }
 
@@ -344,9 +264,6 @@ main {
   }
   .templateProduct__price__product {
     font-size: 1.5rem !important;
-  }
-  .containerPanier {
-    font-size: 1.5rem;
   }
 }
 
@@ -461,10 +378,6 @@ main {
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-  }
-  .containerPanier {
-    font-size: 1.8rem;
-    margin: 2rem 0 !important;
   }
 }
 
@@ -602,8 +515,108 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 0;
   width: 100%;
   margin: 0;
+}
+
+.containerPanier {
+  margin: 2rem 0 !important;
+}
+
+.containerPanier__description {
+  margin: 1rem;
+}
+
+.containerPanier__prix {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.containerPanier a {
+  margin: 1rem;
+  width: 100%;
+}
+
+.affichagePrixTotalPanier {
+  font-size: 1.3rem;
+  margin: 1.5rem 0;
+}
+
+/***************************************************************************/
+/*==    Grand Smartphone + 420px    ==*/
+@media (min-width: 420px) {
+  .containerPanier {
+    font-size: 1.3rem;
+  }
+}
+
+/***************************************************************************/
+/*==    Petite Tablette + 600px    ==*/
+@media (min-width: 600px) {
+  .containerPanier {
+    font-size: 1.5rem;
+  }
+}
+
+/***************************************************************************/
+/*==    Grande Tablette + 1024px     ==*/
+@media (min-width: 1024px) {
+  .containerPanier {
+    font-size: 1.8rem;
+    margin: 2rem 0 !important;
+  }
+}
+
+.templateFormulaire__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.4rem;
+}
+
+.templateFormulaire__container label {
+  margin: 0.5rem;
+}
+
+.templateFormulaire__container input {
+  margin: 0.5rem;
+  width: 100%;
+  font-size: 1.4rem;
+  padding: 1rem;
+}
+
+.templateFormulaire__container textarea {
+  margin: 0.5rem;
+  width: 100%;
+  font-size: 1.4rem;
+  padding: 1rem;
 }
 /*# sourceMappingURL=style.css.map */
