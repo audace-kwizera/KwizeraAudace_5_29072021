@@ -174,7 +174,7 @@ main {
         }
         &__price {
             font-size: 1.8rem!important;
-            margin: 4rem!important;
+            margin: 2rem!important;
         }
     }
 }
@@ -201,6 +201,24 @@ main {
     .templateProduct {
         &__image {
             height: 10rem;
+            &__product {
+                width: 100%!important;
+                height: 100%!important;
+            }
+        }
+        &__title {
+            &__product {
+                height: 2rem;
+                width: 100%;
+                font-size: 1.4rem;
+            }
+        }
+        &__description {
+            &__product {
+                width: 60%;
+                font-size: 1.2rem;
+                margin: 2% 8%;
+            }
         }
         &__container {
             width: 40%;
@@ -210,6 +228,39 @@ main {
         &__price {
             font-size: 1.4rem!important;
             margin: 2rem!important;
+            &__product {
+                text-align: center;
+                align-items: center;
+                display: flex;
+                margin: 2%!important;
+                width: 12%!important;
+                font-size: 1.5rem!important;
+            }
+        }
+        &__option {
+            &__product {
+                margin: 0;
+                width: 50%;
+            }
+        }
+        &__quantite {
+            width: 50%;
+        }
+        &__link {
+            &__add, &__home {
+                margin: 1rem;
+                width: 20%;
+            }
+            &__product {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                width: 100%;
+            }
+        }
+        &__product {
+            display: flex;
+            flex-wrap: wrap;
         }
     }
 }
