@@ -42,34 +42,32 @@
 
     <main>
 
-        <div class="presentation">
-            <h1 class="presentation__title">Nos Produits</h1>
-
-            <a href="index.html" class="btn btn__accueil presentation__link__accueil">Accueil</a>
+        <div class="presentation__product">
+            <h1 class="presentation__title presentation__title__product">Nos Produits</h1>
         </div>
 
-        <div id="templateProduct" class="templateProduct">
-            <img src="" alt="photo de" class="templateProduct__image" id="templateProduct__image" />
+        <div id="templateProduct" class="templateProduct templateProduct__product">
+            <img src="" alt="photo de" class="templateProduct__image templateProduct__image__product" id="templateProduct__image" />
 
-            <h2 class="templateProduct__title" id="templateProduct__title">Nom</h2>
+            <h2 class="templateProduct__title templateProduct__title__product" id="templateProduct__title">Nom</h2>
 
-            <p class="templateProduct__description" id="templateProduct__description">Description</p>
+            <p class="templateProduct__description templateProduct__description__product" id="templateProduct__description">Description</p>
 
-            <h3 class="templateProduct__price" id="templateProduct__price">Prix</h3>
+            <h3 class="templateProduct__price templateProduct__price__product" id="templateProduct__price">Prix</h3>
            
-            <div id="templateOption" class="templateProduct__option">
+            <div id="templateOption" class="templateProduct__option templateProduct__option__product">
                 <label for="templateProduct__option__couleur">Choisissez une Couleur </label>
-                <select name="colors" id="templateProduct__option__couleur" class="templateProduct__option__couleur" class="templateProduct__option__couleur">
+                <select name="colors" id="templateProduct__option__couleur" class="templateProduct__option__couleur">
                 </select>
             </div>
 
             <div id="templateProduct__quantite" class="templateProduct__quantite">
                 <label for="templateProduct__quantite__nombre">Quantité </label>
-                <input type="number" id="templateProduct__quantite__nombre" name="quantite" required min="1"
+                <input type="number" id="templateProduct__quantite__nombre" class="templateProduct__quantite__nombre" name="quantite" required min="1"
                     max="10" value="1">
             </div>
 
-            <div id="templateProduct__link" class="templateProduct__link">
+            <div id="templateProduct__link" class="templateProduct__link templateProduct__link__product">
             <a href="produit.html" class="btn templateProduct__link__add" id="templateProduct__link__add">Lien</a>
 
             <a href="index.html" class="btn templateProduct__link__home">Accueil</a>

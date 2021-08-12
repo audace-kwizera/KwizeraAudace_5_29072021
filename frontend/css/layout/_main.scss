@@ -29,12 +29,16 @@ main {
         margin: 15% 0;
         height: 37rem;
     }
-    
     &__image {
         margin: 5% 0;
         width: 100%;
         height: auto;
         object-fit: cover;
+    }
+    &__title {
+        &__product {
+            margin: 1rem;
+        }
     }
     &__description {
         margin: 10% 5%;
@@ -43,6 +47,44 @@ main {
     &__price {
         font-size: 1.2rem!important;
         margin: 2.5rem;
+        &__product {
+            margin: 1rem;
+        }
+    }
+    &__option {
+        &__product {
+            font-size: 1.2rem;
+        }
+        &__product {
+            margin: 1rem;
+        }
+        &__couleur {
+            font-size: 1.3rem;
+            margin: 0.5rem;
+        }
+    }
+    &__quantite {
+        font-size: 1.2rem;
+        &__nombre {
+            font-size: 1.3rem;
+            margin: 0.1rem;
+        }
+    }
+    &__product {
+        width: 100%!important;
+    }
+    &__link {
+        &__product {
+            @include flex_column_center_text_align_center_align_items_center;
+        }
+        &__add {
+            margin: 1rem 0rem 0.5rem 0rem;
+            padding: 0.3rem;
+        }
+        &__home {
+            margin: 0.5rem 0rem 1rem 0rem;
+            padding: 0.3rem;
+        }
     }
 }
 
