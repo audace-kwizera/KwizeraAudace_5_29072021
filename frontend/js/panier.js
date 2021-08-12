@@ -184,7 +184,7 @@ const affichageFormulaireLivraison = () => {
         <label for="email">Email</label><span id="errorEmail" class="errorFormValue"></span>
         <input type="email" name="email" id="email" required>
 
-        <button id="btn__envoyer__formulaire" type="submit" name="btn__envoyer__formulaire">Confirmer le Paiement</button>
+        <button id="btn__envoyer__formulaire" class="btn btn__envoyer__formulaire" type="submit" name="btn__envoyer__formulaire">Confirmer le Paiement</button>
     </form>
 </div>`
 

@@ -39,6 +39,11 @@ body {
   padding: 0.5rem;
 }
 
+.btn__envoyer__formulaire {
+  width: 100%;
+  margin: 2rem;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -265,6 +270,40 @@ main {
 .affichagePrixTotalPanier {
   font-size: 1.3rem;
   margin: 1.5rem 0;
+}
+
+.templateFormulaire__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.4rem;
+}
+
+.templateFormulaire__container label {
+  margin: 0.5rem;
+}
+
+.templateFormulaire__container input {
+  margin: 0.5rem;
+  width: 100%;
+  font-size: 1.4rem;
+}
+
+.templateFormulaire__container textarea {
+  margin: 0.5rem;
+  width: 100%;
+  font-size: 1.4rem;
 }
 
 /***************************************************************************/

@@ -108,6 +108,24 @@ main {
     margin: 1.5rem 0;
 }
 
+.templateFormulaire__container {
+    @include flex_column_center_text_align_center_align_items_center;
+    font-size: 1.4rem;
+    & label {
+        margin: 0.5rem;
+    }
+    & input {
+        margin: 0.5rem;
+        width: 100%;
+        font-size: 1.4rem;
+    }
+    & textarea {
+        margin: 0.5rem;
+        width: 100%;
+        font-size: 1.4rem;
+    }
+}
+
 /***************************************************************************/
 /*==    Grand Smartphone + 420px    ==*/
 @media (min-width: $big-smartphone) {
