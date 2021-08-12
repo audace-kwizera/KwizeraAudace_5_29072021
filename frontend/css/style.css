@@ -33,6 +33,12 @@ body {
   transition: all ease-in-out 300ms;
 }
 
+.btn__vider__panier {
+  width: 100%;
+  margin: 0;
+  padding: 0.5rem;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -227,6 +233,7 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 2rem 0 !important;
 }
 
 .containerPanier__description {
@@ -253,6 +260,11 @@ main {
 .containerPanier a {
   margin: 1rem;
   width: 100%;
+}
+
+.affichagePrixTotalPanier {
+  font-size: 1.3rem;
+  margin: 1.5rem 0;
 }
 
 /***************************************************************************/

@@ -90,16 +90,22 @@ main {
 
 .containerPanier {
     @include flex_column_center_text_align_center_align_items_center;
+    margin: 2rem 0!important;
     &__description {
         margin: 1rem;
     }
     &__prix {
-        @include flex_column_center_text_align_center_align_items_center
+        @include flex_column_center_text_align_center_align_items_center;
     }
     & a {
         margin: 1rem;
         width: 100%;
     }
+}
+
+.affichagePrixTotalPanier {
+    font-size: 1.3rem;
+    margin: 1.5rem 0;
 }
 
 /***************************************************************************/
