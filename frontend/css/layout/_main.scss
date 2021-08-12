@@ -119,6 +119,10 @@ main {
             font-size: 1.2rem;
         }
     }
+
+    .containerPanier {
+        font-size: 1.3rem;
+    }
     
 }
 
@@ -149,6 +153,10 @@ main {
             }
         }
 
+    }
+
+    .containerPanier {
+        font-size: 1.5rem;
     }
 }
 
@@ -276,6 +284,11 @@ main {
             display: flex;
             flex-wrap: wrap;
         }
+    }
+
+    .containerPanier {
+        font-size: 1.8rem;
+        margin: 2rem 0 !important;
     }
 }
 

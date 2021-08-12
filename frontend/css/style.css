@@ -269,6 +269,9 @@ main {
   .templateProduct__description {
     font-size: 1.2rem;
   }
+  .containerPanier {
+    font-size: 1.3rem;
+  }
 }
 
 /***************************************************************************/
@@ -290,6 +293,9 @@ main {
   }
   .templateProduct__price__product {
     font-size: 1.5rem !important;
+  }
+  .containerPanier {
+    font-size: 1.5rem;
   }
 }
 
@@ -404,6 +410,10 @@ main {
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+  }
+  .containerPanier {
+    font-size: 1.8rem;
+    margin: 2rem 0 !important;
   }
 }
 
