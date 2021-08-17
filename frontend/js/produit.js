@@ -103,89 +103,99 @@ const addProductToCart = document.getElementById("templateProduct__link__add")
 addProductToCart.addEventListener("click", (event) => {
     //Bloque la rectualisation de la page a l'appui du bouton
     event.preventDefault()
+    if (addProductQuantity.value > 0) {
 
-    /*==============    Creation Objet ========*/
+        /*==============    Creation Objet ========*/
 
-    //Selection du nom du produit
-    const addProductNameChoice = addProductName.innerHTML
-    //console.log(addProductNameChoice)
+        //Selection du nom du produit
+        const addProductNameChoice = addProductName.innerHTML
+        //console.log(addProductNameChoice)
 
-    //Mettre le choix de l'utilisateur pour l'option 
-    const addProductChoice = addProductColor.value
-    //console.log(addProductChoice)
+        //Mettre le choix de l'utilisateur pour l'option 
+        const addProductChoice = addProductColor.value
+        //console.log(addProductChoice)
 
-    //Ajouter la quantité choisi par l'utilisateur 
-    const addProductQuantityChoice = addProductQuantity.value
-    //console.log(addProductQuantityChoice)
+        //Ajouter la quantité choisi par l'utilisateur 
+        const addProductQuantityChoice = addProductQuantity.value
+        //console.log(addProductQuantityChoice)
 
-    //Ajuster le prix selon la quantité choisi par l'utilisateur 
-    const addProductPriceQuantity = templateProduct__price.innerText
-    //console.log(addProductPriceQuantity)
+        //Ajuster le prix selon la quantité choisi par l'utilisateur 
+        const addProductPriceQuantity = templateProduct__price.innerText
+        //console.log(addProductPriceQuantity)
 
-    //Recuperer les données du lot produit à ajouter
-    let addProductOptions = {
-        nomProduit: addProductNameChoice,
-        optionProduit: addProductChoice,
-        quantite: addProductQuantityChoice,
-        prix: parseFloat(addProductPriceQuantity) * addProductQuantityChoice,
-        idProduit: addProductId,
-    }
-    console.log(addProductOptions)
+        //Recuperer les données du lot produit à ajouter
+        let addProductOptions = {
+            nomProduit: addProductNameChoice,
+            optionProduit: addProductChoice,
+            quantite: addProductQuantityChoice,
+            prix: parseFloat(addProductPriceQuantity) * addProductQuantityChoice,
+            idProduit: addProductId,
+        }
+        console.log(addProductOptions)
 
-    //Convertir les prix en euros
-    addProductOptions.prix = new Intl.NumberFormat("fr-FR", {
-        style: "currency",
-        currency: "EUR",
-    }).format(addProductOptions.prix);
+        //Convertir les prix en euros
+        addProductOptions.prix = new Intl.NumberFormat("fr-FR", {
+            style: "currency",
+            currency: "EUR",
+        }).format(addProductOptions.prix);
 
-    /*===============   Local Storage   =========*/
-    //Verifier si le local storage est vide, on va lire la clé produit via getItem
-    let products = JSON.parse(localStorage.getItem("product"))
-    //conversion des données js dans le localstorage en json via json.parse
-    //console.log(products)
+        /*===============   Local Storage   =========*/
+        //Verifier si le local storage est vide, on va lire la clé produit via getItem
+        let products = JSON.parse(localStorage.getItem("product"))
+        //conversion des données js dans le localstorage en json via json.parse
+        //console.log(products)
 
-    //Petit message de confirmation
-    const messageConfirmer = () => {
-        if (window.confirm(`Le gentil nounours ${addProductNameChoice} de couleur ${addProductChoice} a bien été ajouté :)
+        //Petit message de confirmation
+        const messageConfirmer = () => {
+            if (window.confirm(`Le gentil nounours ${addProductNameChoice} de couleur ${addProductChoice} a bien été ajouté :)
 Pour voir le panier cliquez sur OK ou ANNULER pour revenir à l'accueil`)) {
 
-            //Adresse pour voir le panier
-            window.location.href = "panier.html"
-        } else {
-            window.location.href = "index.html"
+                //Adresse pour voir le panier
+                window.location.href = "panier.html"
+            } else {
+                window.location.href = "index.html"
+            }
         }
-    }
 
-    //Ajout du lot dans le localstorage
-    const ajoutLocalStorage = () => {
-        products.push(addProductOptions)
+        //Ajout du lot dans le localstorage
+        const ajoutLocalStorage = () => {
+            products.push(addProductOptions)
 
-        /**Envoyer les produits choisi dans le localstorage 
-        * pour éviter l'effacement des produits lors deraffraichissement de page
-        * et creer la clé product
-        */
-        localStorage.setItem("product", JSON.stringify(products))
-    }
+            /**Envoyer les produits choisi dans le localstorage 
+            * pour éviter l'effacement des produits lors deraffraichissement de page
+            * et creer la clé product
+            */
+            localStorage.setItem("product", JSON.stringify(products))
+        }
 
 
-    //Si il y a ou non une clé des produits dans le localstorage 
-    if (products) {
-        //Pour ajouter de nouveaux produits en plus
-        ajoutLocalStorage()
+        //Si il y a ou non une clé des produits dans le localstorage 
+        if (products) {
+            //Pour ajouter de nouveaux produits en plus
+            ajoutLocalStorage()
 
-        //Envoyer une confirmation pour le client
-        messageConfirmer()
+            //Envoyer une confirmation pour le client
+            messageConfirmer()
 
+        } else {
+            //Creer un array vide
+            products = []
+
+            //Mettre dans le tableau le contenu du lot de produits
+            ajoutLocalStorage()
+
+            //Envoyer une confirmation pour le client
+            messageConfirmer()
+        }
     } else {
-        //Creer un array vide
-        products = []
-
-        //Mettre dans le tableau le contenu du lot de produits
-        ajoutLocalStorage()
-
-        //Envoyer une confirmation pour le client
-        messageConfirmer()
+        //Affichage d'un message au cas ou il y a une erreur  
+        alert("Quantité inférieur à 1")
+        /**
+         * Test 2 => Affichage d'une erreur si aucun produit trouvé
+         * console.log(error)
+         */
     }
 })
 
 
+//enlever les  console.log et rennomer variables add

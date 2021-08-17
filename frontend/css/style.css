@@ -8,6 +8,8 @@
 /** Style général du site */
 body {
   font-family: "Gill Sans", sans-serif, "Roboto", sans-serif, "Helvetica Neue", sans-serif;
+  margin: 0;
+  min-height: 100vh !important;
   max-width: 2048px;
 }
 
@@ -125,6 +127,9 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   padding: 12%;
@@ -227,6 +232,29 @@ main {
 .templateProduct__link__home {
   margin: 0.5rem 0rem 1rem 0rem;
   padding: 0.3rem;
+}
+
+.templateConfirmationCommande {
+  margin: 40% 0 !important;
+}
+
+.templateConfirmationCommande__container__orderId,
+.templateConfirmationCommande__container__total {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.5rem;
 }
 
 /***************************************************************************/
@@ -432,6 +460,9 @@ footer {
       -ms-flex-align: center;
           align-items: center;
   background-color: #f0f0c5;
+  bottom: 0;
+  width: 100%;
+  max-width: 2048px;
 }
 
 footer ul {
@@ -452,6 +483,12 @@ footer ul {
 footer ul a {
   color: black;
   font-weight: 700;
+}
+
+footer ul a:hover {
+  text-decoration: underline;
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
 }
 
 .templateProduct, .containerPanier, .containerPanier__total {

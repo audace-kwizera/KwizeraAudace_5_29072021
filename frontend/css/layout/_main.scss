@@ -1,6 +1,7 @@
 /*=     Main     =*/
 main {
     @include flex_row_center_text_align_center_align_items_center;
+    flex: 1;
     flex-wrap: wrap;
     padding: 12%;
 }
@@ -86,6 +87,16 @@ main {
             padding: 0.3rem;
         }
     }
+}
+
+.templateConfirmationCommande {
+    margin: 40% 0 !important;
+}
+
+.templateConfirmationCommande__container__orderId,
+.templateConfirmationCommande__container__total {
+    @include flex_column_center_text_align_center_align_items_center;
+    font-size: 1.5rem;
 }
 
 /***************************************************************************/

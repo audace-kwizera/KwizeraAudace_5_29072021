@@ -1,6 +1,10 @@
 footer {
     @include flex_column_center_text_align_center_align_items_center;
     background-color: $primary-color;
+    //Eposition: absolute;
+    bottom: 0;
+    width: 100%;
+    max-width: 2048px;
     &  ul {
     @include flex_column;
     list-style: none;
@@ -11,6 +15,10 @@ footer {
     & a {
         color: black;
         font-weight: 700;
-    }
+        &:hover {
+            text-decoration: underline;
+            transition: all ease-in-out 300ms;
+            }
+        }
     }
 }
