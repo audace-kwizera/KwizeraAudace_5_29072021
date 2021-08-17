@@ -8,7 +8,6 @@
     //Attendre que les produits soit trouvés par fetch pour les récuperer des produits
     const product = await getProduct(productId)
     //const colorsSelection = document.querySelector("colors")
-    //console.log(product)
     //Changer le contenu de notre div existante, on rafraichi en récupérant les infos sur notre produit
     hydrateProduct(product)
 })()
@@ -30,7 +29,6 @@ function getProduct(productId) {
             return products
             /**
              * Test 1 => récupération des données ok le fetch récupère les donnés
-             * console.log(products)
              */
         })
         //Affichage d'un message au cas ou il y a une erreur 
@@ -38,7 +36,6 @@ function getProduct(productId) {
             alert(error)
             /**
              * Test 2 => Affichage d'une erreur si aucun produit trouvé
-             * console.log(error)
              */
         })
 }
@@ -70,84 +67,72 @@ function hydrateProduct(product) {
 
 //Recuperation des données séléctionnées par l'utilisateur et envoi au panier
 //Selection du nom du produit
-const addProductName = document.getElementById("templateProduct__title")
-//console.log(addProductName)
+const ProductName = document.getElementById("templateProduct__title")
 
 //Selection de id du produit
-const addProductId = getProductId()
-//console.log(addProductId)
+const ProductId = getProductId()
 
 //Selection de l'id de l'option du produit
-const addProductColor = document.getElementById("templateProduct__option__couleur")
-//console.log(addProductColor)
+const ProductColor = document.getElementById("templateProduct__option__couleur")
 
 //Attraper la quantité choisi par l'utilisateur 
-const addProductQuantity = document.getElementById("templateProduct__quantite__nombre")
-//console.log(addProductQuantity)
+const ProductQuantity = document.getElementById("templateProduct__quantite__nombre")
 
 //Ajouter le prix choisi par l'utilisateur 
-//const addProductPrice = document.getElementById("templateProduct__price")
-//console.log(addProductPrice)
+//const ProductPrice = document.getElementById("templateProduct__price")
 
 
 /*================= Panier  =================*/
 
 
 //Selection du bouton ajout panier
-const addProductToCart = document.getElementById("templateProduct__link__add")
-//console.log(addProductToCart)
+const ProductToCart = document.getElementById("templateProduct__link__add")
 
 /* Creation de l'evenement d'ajout au panier */
 
 //Envoyer le panier
-addProductToCart.addEventListener("click", (event) => {
+ProductToCart.addEventListener("click", (event) => {
     //Bloque la rectualisation de la page a l'appui du bouton
     event.preventDefault()
-    if (addProductQuantity.value > 0) {
+    if (ProductQuantity.value > 0) {
 
         /*==============    Creation Objet ========*/
 
         //Selection du nom du produit
-        const addProductNameChoice = addProductName.innerHTML
-        //console.log(addProductNameChoice)
+        const ProductNameChoice = ProductName.innerHTML
 
         //Mettre le choix de l'utilisateur pour l'option 
-        const addProductChoice = addProductColor.value
-        //console.log(addProductChoice)
+        const ProductChoice = ProductColor.value
 
         //Ajouter la quantité choisi par l'utilisateur 
-        const addProductQuantityChoice = addProductQuantity.value
-        //console.log(addProductQuantityChoice)
+        const ProductQuantityChoice = ProductQuantity.value
 
         //Ajuster le prix selon la quantité choisi par l'utilisateur 
-        const addProductPriceQuantity = templateProduct__price.innerText
-        //console.log(addProductPriceQuantity)
+        const ProductPriceQuantity = templateProduct__price.innerText
 
         //Recuperer les données du lot produit à ajouter
-        let addProductOptions = {
-            nomProduit: addProductNameChoice,
-            optionProduit: addProductChoice,
-            quantite: addProductQuantityChoice,
-            prix: parseFloat(addProductPriceQuantity) * addProductQuantityChoice,
-            idProduit: addProductId,
+        let ProductOptions = {
+            nomProduit: ProductNameChoice,
+            optionProduit: ProductChoice,
+            quantite: ProductQuantityChoice,
+            prix: parseFloat(ProductPriceQuantity) * ProductQuantityChoice,
+            idProduit: ProductId,
         }
-        console.log(addProductOptions)
 
         //Convertir les prix en euros
-        addProductOptions.prix = new Intl.NumberFormat("fr-FR", {
+        ProductOptions.prix = new Intl.NumberFormat("fr-FR", {
             style: "currency",
             currency: "EUR",
-        }).format(addProductOptions.prix);
+        }).format(ProductOptions.prix);
 
         /*===============   Local Storage   =========*/
         //Verifier si le local storage est vide, on va lire la clé produit via getItem
         let products = JSON.parse(localStorage.getItem("product"))
         //conversion des données js dans le localstorage en json via json.parse
-        //console.log(products)
 
         //Petit message de confirmation
         const messageConfirmer = () => {
-            if (window.confirm(`Le gentil nounours ${addProductNameChoice} de couleur ${addProductChoice} a bien été ajouté :)
+            if (window.confirm(`Le gentil nounours ${ProductNameChoice} de couleur ${ProductChoice} a bien été ajouté :)
 Pour voir le panier cliquez sur OK ou ANNULER pour revenir à l'accueil`)) {
 
                 //Adresse pour voir le panier
@@ -159,7 +144,7 @@ Pour voir le panier cliquez sur OK ou ANNULER pour revenir à l'accueil`)) {
 
         //Ajout du lot dans le localstorage
         const ajoutLocalStorage = () => {
-            products.push(addProductOptions)
+            products.push(ProductOptions)
 
             /**Envoyer les produits choisi dans le localstorage 
             * pour éviter l'effacement des produits lors deraffraichissement de page
@@ -192,10 +177,8 @@ Pour voir le panier cliquez sur OK ou ANNULER pour revenir à l'accueil`)) {
         alert("Quantité inférieur à 1")
         /**
          * Test 2 => Affichage d'une erreur si aucun produit trouvé
-         * console.log(error)
          */
     }
 })
 
 
-//enlever les  console.log et rennomer variables add

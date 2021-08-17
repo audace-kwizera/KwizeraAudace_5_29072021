@@ -9,7 +9,7 @@
 (async function () {
     //Attendre que les produits soit trouvés par fetch pour les récuperer des produits
     const products = await getProducts()
-    //console.log(products)
+    
     //Selection de chaque produits de la liste de produits
     for (product of products) {
         //Fonctions qui affiche tous les produits
@@ -29,15 +29,15 @@ function getProducts() {
             return products
             /**
              * Test 1 => récupération des données ok le fetch récupère les donnés
-             * console.log(products)
-             */
+             
+*/
         })
         //Affichage d'un message au cas ou il y a une erreur 
         .catch(function (error) {
             alert(error)
             /**
              * Test 2 => Affichage d'une erreur si aucun produit trouvé
-             * console.log(error)
+          
              */
         })
 }

@@ -2,14 +2,12 @@
 //Verifier si le local storage est vide, on va lire la clé produit via getItem
 let products = JSON.parse(localStorage.getItem("product"))
 //conversion des données js dans le localstorage en json via json.parse
-//console.log(products)
 
 /**
  * Selection de la classe html pour rajouter les produits
  */
 
 const selectionContenuPanier = document.querySelector("#templatePanier__message")
-//console.log(selectionContenuPanier)
 
 let panierRempli = []
 
@@ -22,19 +20,16 @@ if (products === null || products == 0) {
     <h3>Votre panier est vide</h3>
 </div>`
     selectionContenuPanier.innerHTML = panierVide
-    //console.log("vide")
 } else {
     //si rempli => afficher produit
     //on utilise k car i a déjà été utilisés
     for (j = 0; j < products.length; j++) {
-        //console.log(products.length)
 
         //Affichage de produit en boucle (la lettre k va permettre a for de rajouter les élements tant qu'il y en a)
         panierRempli = panierRempli + `<div id="containerPanier" class="containerPanier">
     <div class="containerPanier__description">${products[j].quantite} x Nounours ${products[j].nomProduit} de couleur ${products[j].optionProduit} produit</div>
     <div class="containerPanier__prix">${products[j].prix} - <a class="btn btn__supprimer">Retirer</a> </div>
 </div>`
-        //console.log("rempli")
     }
 
     //Afficher le panier
@@ -47,7 +42,6 @@ if (products === null || products == 0) {
  * Supprimer un produit du panier
  */
 let suppressionProduitPanier = document.querySelectorAll(".btn__supprimer")
-//console.log(suppressionProduitPanier)
 
 //j'utilise k pour la boucle car i et j ont été utilisé
 for (let k = 0; k < suppressionProduitPanier.length; k++) {
@@ -57,8 +51,6 @@ for (let k = 0; k < suppressionProduitPanier.length; k++) {
 
         //On selectionne l'id du produit 
         let suppressionProduitPanierId = products[k].idProduit
-        //console.log("suppressionProduitPanierId")
-        //console.log(suppressionProduitPanierId)
 
         /**
          * supprimer les objets en cliquant sur le bouton
@@ -66,7 +58,6 @@ for (let k = 0; k < suppressionProduitPanier.length; k++) {
          * un nouveau array mis a jour avec fonction inverse "!"
          * */
         products = products.filter((el) => el.idProduit !== suppressionProduitPanierId)
-        //console.log(products)
 
         /**Envoyer les produits choisi dans le localstorage 
         * pour éviter l'effacement des produits lors deraffraichissement de page
@@ -92,7 +83,6 @@ selectionContenuPanier.insertAdjacentHTML("beforeend", viderProduitPanier)
 
 //Recuperer infos lien vider panier
 const viderProduitPanierLink = document.querySelector("#btn__vider__panier")
-//console.log(viderProduitPanierLink)
 
 /**
  * On va supprimer la key du localstorage pour vider le panier
@@ -122,7 +112,6 @@ for (let l = 0; l < products.length; l++) {
     //on utilis push pour rajouter les elements
     panierRempliPrixTotal.push(panierRempliPrix)
 
-    //console.log(panierRempliPrixTotal)
 }
 //On transforme les prix en nombre grâce à parsefloat
 panierRempliPrixTotal = panierRempliPrixTotal.map((x) => parseFloat(x))
@@ -130,8 +119,6 @@ panierRempliPrixTotal = panierRempliPrixTotal.map((x) => parseFloat(x))
 //On va faire le calcul pour obtenir le total de tous les produits avec reduce
 const reducer = (accumulator, currentValue) => accumulator + currentValue
 const prixTotalPanier = (panierRempliPrixTotal.reduce(reducer, 0))
-
-//console.log(prixTotalPanier)
 
 
 /**
@@ -151,7 +138,6 @@ affichagePrixTotalPanier.innerText = new Intl.NumberFormat("fr-FR", {
 let product = []
 product.push = products
 
-//console.log(product)
 
 
 
@@ -197,7 +183,6 @@ affichageFormulaireLivraison()
 
 //On va creer l'evenement envoyer
 const boutonEnvoyerFormulaireLivraison = document.querySelector("#btn__envoyer__formulaire")
-//console.log(boutonEnvoyerFormulaireLivraison)
 
 /**
  * On ecoute le click
@@ -335,8 +320,6 @@ boutonEnvoyerFormulaireLivraison.addEventListener("click", (event) => {
         alert("Verifier votre reponse")
     }
 
-    //console.log(valueFirstName)
-
 
     /** 
     Preparer les données de la commande à envoyer au serveur 
@@ -352,7 +335,6 @@ boutonEnvoyerFormulaireLivraison.addEventListener("click", (event) => {
         },
         products: product,
     }
-    //console.log(order)
     
 
     //Préparation de l'envoi
@@ -374,7 +356,6 @@ boutonEnvoyerFormulaireLivraison.addEventListener("click", (event) => {
 
             //On vide le panier après l'envoi 
             localStorage.clear()
-            console.log(data)
             
             //Création de l'id de la commande 
           localStorage.setItem("orderId", data.orderId)
@@ -403,7 +384,6 @@ const keyLocalStorageFormulaireLivraisonDonnee = JSON.parse(keyLocalStorageFormu
 //Garder les données saisie dans le formulaire même lors d'un ractualisation de page
 function saisieInfoLocalStorage(saisie) {
     if(keyLocalStorageFormulaireLivraisonDonnee == null){
-        console.log("nulll")
     } else {
         document.querySelector(`#${saisie}`).value = keyLocalStorageFormulaireLivraisonDonnee[saisie]
     }
@@ -414,8 +394,6 @@ saisieInfoLocalStorage("lastName")
 saisieInfoLocalStorage("address")
 saisieInfoLocalStorage("city")
 saisieInfoLocalStorage("email")
-
-//console.log(keyLocalStorageFormulaireLivraisonDonnee)
 
 
 //utiliser id comme key pour verifier lors de l'ajout si l'id existe dejà pour l'addition des produits automatiquement
