@@ -318,6 +318,7 @@ boutonEnvoyerFormulaireLivraison.addEventListener("click", (event) => {
         localStorage.setItem("contact", JSON.stringify(contact))
     } else {
         alert("Verifier votre reponse")
+        e.preventDefault()
     }
 
 
@@ -369,6 +370,7 @@ boutonEnvoyerFormulaireLivraison.addEventListener("click", (event) => {
             alert("Oups ca ne marche pas, peut être une erreur" + err);
         })
 })
+
 
 
 /** 
