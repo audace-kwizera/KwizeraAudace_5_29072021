@@ -7,7 +7,6 @@
     //Appel du produit
     //Attendre que les produits soit trouvés par fetch pour les récuperer des produits
     const product = await getProduct(productId)
-    //const colorsSelection = document.querySelector("colors")
     //Changer le contenu de notre div existante, on rafraichi en récupérant les infos sur notre produit
     hydrateProduct(product)
 })()
@@ -77,10 +76,6 @@ const ProductColor = document.getElementById("templateProduct__option__couleur")
 
 //Attraper la quantité choisi par l'utilisateur 
 const ProductQuantity = document.getElementById("templateProduct__quantite__nombre")
-
-//Ajouter le prix choisi par l'utilisateur 
-//const ProductPrice = document.getElementById("templateProduct__price")
-
 
 /*================= Panier  =================*/
 
